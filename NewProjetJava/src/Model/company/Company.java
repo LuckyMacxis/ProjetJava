@@ -1,7 +1,6 @@
 package Model.company;
 
 import Model.Time.Check;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -413,6 +412,7 @@ public class Company implements Serializable {
 
 
 
+
     public void serialize(){
         try {
             FileOutputStream fos = new FileOutputStream("save/company.serial");
@@ -459,5 +459,6 @@ public class Company implements Serializable {
         throw new Exception("deserialization failed");
 
     }
+
     //</editor-fold>
 }

@@ -90,26 +90,49 @@ public class ChecksHistoryController {
         model.addColumn("Date");
         model.addColumn("Time");
         model.addColumn("Reference Time");
+        if(selectedItem == null)
+            return;
 
         if (selectedItem.split(" ")[0].equals("M")){
             Manager manager = company.searchManagerWithId(Integer.parseInt(selectedItem.split(" ")[1]));
             for (Check c:manager.getListCheck()) {
-                model.addRow(new Object[]{
-                        manager.getFirstname()+" "+manager.getLastname(),
-                        c.getCheck().getDate(),
-                        c.getCheck().getTime(),
-                        //TODO : manque un truc
-                });
+                if(c.getArrivingTime() != null){
+                    model.addRow(new Object[]{
+                            manager.getFirstname()+" "+manager.getLastname(),
+                            c.getCheck().getDate(),
+                            c.getCheck().getTime(),
+                            c.getArrivingTime()
+                    });
+                }
+                if(c.getDepartureTime() != null){
+                    model.addRow(new Object[]{
+                            manager.getFirstname()+" "+manager.getLastname(),
+                            c.getCheck().getDate(),
+                            c.getCheck().getTime(),
+                            c.getDepartureTime()
+                    });
+                }
             }
         }else{
             Employee employee= company.searchEmployeeWithId(Integer.parseInt(selectedItem.split(" ")[0]));
             for (Check c:employee.getListCheck()) {
-                model.addRow(new Object[]{
-                        employee.getFirstname()+" "+employee.getLastname(),
-                        c.getCheck().getDate(),
-                        c.getCheck().getTime(),
-                        //TODO : manque un truc
-                });
+                if(c.getArrivingTime() != null){
+                    model.addRow(new Object[]{
+                            employee.getFirstname()+" "+employee.getLastname(),
+                            c.getCheck().getDate(),
+                            c.getCheck().getTime(),
+                            c.getArrivingTime()
+                    });
+                }
+                if(c.getDepartureTime() != null){
+                    model.addRow(new Object[]{
+                            employee.getFirstname()+" "+employee.getLastname(),
+                            c.getCheck().getDate(),
+                            c.getCheck().getTime(),
+                            c.getDepartureTime()
+                    });
+                }
+
             }
         }
         theView.getTableChecks().setModel(model);
