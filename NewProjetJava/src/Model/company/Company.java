@@ -310,7 +310,6 @@ public class Company implements Serializable {
             throw new Exception("Argument null");
         if (!isManagerIn(manager))
             throw new Exception("This manager isn't in the company");
-
         manager.addCheck(check);
     }
 
@@ -409,8 +408,6 @@ public class Company implements Serializable {
         }
         throw new Exception("Company : searchDepartment : No department with this name");
     }
-
-
 
 
     public void serialize(){

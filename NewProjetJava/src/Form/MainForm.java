@@ -1,6 +1,7 @@
 package Form;
 
 import javax.swing.*;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionListener;
 
 public class MainForm extends JFrame{
@@ -23,10 +24,52 @@ public class MainForm extends JFrame{
     private JRadioButton employeeOnlyRadioButton;
     private JRadioButton bothRadioButton;
     private JButton buttonSetAsChief;
+    private JTabbedPane tabbedPane1;
+    private JTable jTableDepartment;
+    private JTextField textFieldNameDepartment;
+    private JComboBox comboBoxChief;
+    private JButton addButton;
+    private JComboBox comboBoxEmployeeCheck;
+    private JComboBox comboBoxDepartmentCheck;
+    private JTable tableCheck;
+    private JTextField textFieldSearch;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JButton importButton;
+    private JButton exportButton;
 
 
     //<editor-fold desc = "Get and Set">
 
+
+    public JTable getTableDepartment() {
+        return jTableDepartment;
+    }
+
+    public JTextField getTextFieldNameDepartment() {
+        return textFieldNameDepartment;
+    }
+
+    public JComboBox getComboBoxChief() {
+        return comboBoxChief;
+    }
+
+    public JComboBox getComboBoxEmployeeCheck() {
+        return comboBoxEmployeeCheck;
+    }
+
+    public JComboBox getComboBoxDepartmentCheck() {
+        return comboBoxDepartmentCheck;
+    }
+
+    public JTable getTableCheck() {
+        return tableCheck;
+    }
+
+    public JTextField getTextFieldSearch() {
+        return textFieldSearch;
+    }
 
     public JTable getTableStaff() {
         return tableStaff;
@@ -136,6 +179,27 @@ public class MainForm extends JFrame{
     public void buttonSetAsChiefListener(ActionListener actionListener){
         buttonSetAsChief.addActionListener(actionListener);
     }
+
+    public void tabbedPaneListener(ChangeListener changeListener){
+        tabbedPane1.addChangeListener(changeListener);
+    }
+
+    public void buttonAddDepartmentListener(ActionListener actionListener){
+        addButton.addActionListener(actionListener);
+    }
+
+    public void textFieldSearchListener(ActionListener actionListener){
+        textFieldSearch.addActionListener(actionListener);
+    }
+
+    public void comboBoxEmployeeCheckListener(ActionListener actionListener){
+        comboBoxEmployeeCheck.addActionListener(actionListener);
+    }
+
+    public void comboBoxDepartmentCheckListener(ActionListener actionListener){
+        comboBoxDepartmentCheck.addActionListener(actionListener);
+    }
+
     //</editor-fold>
 
 

@@ -55,6 +55,12 @@ public class DateAndTime implements Serializable{
         this.roundTime();
     }
 
+    public DateAndTime(LocalTime now) throws Exception {
+        date = null;
+        time = now;
+        roundTime();
+    }
+
     //</editor-fold>
 
     //<editor-fold desc = "Get and Set">

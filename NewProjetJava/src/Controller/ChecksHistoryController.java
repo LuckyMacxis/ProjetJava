@@ -115,6 +115,8 @@ public class ChecksHistoryController {
             }
         }else{
             Employee employee= company.searchEmployeeWithId(Integer.parseInt(selectedItem.split(" ")[0]));
+            System.out.println("employee list");
+            System.out.println(employee.getListCheck().size());
             for (Check c:employee.getListCheck()) {
                 if(c.getArrivingTime() != null){
                     model.addRow(new Object[]{

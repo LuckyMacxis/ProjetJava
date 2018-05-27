@@ -1,8 +1,9 @@
 package Model.Time;
 
+import Model.company.Company;
 import Model.company.Employee;
 
-import java.io.Serializable;
+import java.io.*;
 
 public class Check implements Serializable{
 
@@ -88,6 +89,47 @@ public class Check implements Serializable{
 
     //<editor-fold desc = "Method">
 
+    public void serialize() throws IOException {
+        FileOutputStream fos = new FileOutputStream("tmp/check.serial");
+
+        ObjectOutputStream oos= new ObjectOutputStream(fos);
+        try {
+            oos.writeObject(this);
+            oos.flush();
+            System.out.println("serialized");
+        } finally {
+            try {
+                oos.close();
+            } finally {
+                fos.close();
+            }
+        }
+    }
+
+    static public Check deserialize() throws Exception {
+        Check check = null;
+        try {
+            FileInputStream fis = new FileInputStream("tmp/check.serial");
+            ObjectInputStream ois= new ObjectInputStream(fis);
+            try {
+                check = (Check) ois.readObject();
+            } finally { try {
+                ois.close();
+            } finally {
+                fis.close();
+            }
+            }
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        } catch(ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+        }
+        if(check != null) {
+            System.out.println("check deserialize");
+            return check;
+        }
+        throw new Exception("deserialization failed");
+    }
 
     //</editor-fold>
 

@@ -30,22 +30,8 @@ public class Main_STUB {
             employee1.addCheck(new Check(employee1,new DateAndTime("17/05/1997 15:00",DateAndTime.DATE_TIME)));
             employee1.addCheck(new Check(employee1,new DateAndTime("18/05/1997 11:00",DateAndTime.DATE_TIME)));
             employee1.addCheck(new Check(employee1,new DateAndTime("18/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("19/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("19/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("20/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("20/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("21/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("21/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("22/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("22/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("23/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("23/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("24/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("24/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("25/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("25/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("26/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("26/05/1997 15:00",DateAndTime.DATE_TIME)));
+
+
             Employee employee2 = new Employee("David","ZAIPOULAIEV",
                                                new DateAndTime("8:00",DateAndTime.TIME),
                                                new DateAndTime("18:00",DateAndTime.TIME));
@@ -65,7 +51,7 @@ public class Main_STUB {
             Manager manager2 = new Manager("Olivier","Philip",
                                             new DateAndTime("5:45",DateAndTime.TIME),
                                             new DateAndTime("20:45",DateAndTime.TIME));
-            Manager manager3 = new Manager("Yann","David",
+            Manager manager3 = new Manager("petit","David",
                                             new DateAndTime("7:45",DateAndTime.TIME),
                                             new DateAndTime("22:45",DateAndTime.TIME));
 
@@ -93,6 +79,8 @@ public class Main_STUB {
             company.addEmployeeToDepartment(employee1,department1);
             company.addEmployeeToDepartment(employee2,department2);
             company.addEmployeeToDepartment(employee3,department3);
+
+            company.addCheckToManager(manager3,new Check(manager3,new DateAndTime("22/05/1997 11:00",DateAndTime.DATE_TIME)));
 
         }catch (Exception e){
             e.printStackTrace();

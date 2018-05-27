@@ -95,6 +95,8 @@ public class Employee extends Person {
      *                   or if the check is anterior of the last check of the employee
      */
     public void addCheck(Check check) throws Exception {
+        check.setArrivingTime(null);
+        check.setDepartureTime(null);
         if (check == null)
             throw new Exception("Person null arguments");
         if (this.getId() != check.getEmployee().getId())
