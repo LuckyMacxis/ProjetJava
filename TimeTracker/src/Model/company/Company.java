@@ -1,7 +1,6 @@
 package Model.company;
 
 import Model.Time.Check;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -410,6 +409,7 @@ public class Company implements Serializable {
         }
         throw new Exception("Company : searchDepartment : No department with this name");
     }
+
 
 
 
