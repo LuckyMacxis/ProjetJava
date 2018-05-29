@@ -3,6 +3,8 @@ package Form;
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.beans.VetoableChangeListener;
 
 public class MainForm extends JFrame{
 
@@ -32,10 +34,10 @@ public class MainForm extends JFrame{
     private JComboBox comboBoxEmployeeCheck;
     private JComboBox comboBoxDepartmentCheck;
     private JTable tableCheck;
-    private JTextField textFieldSearch;
+    private JTextField textFieldSearchDepartment;
     private JTextField textField1;
     private JTextField textField2;
-    private JTextField textField3;
+    private JTextField fileNameTextField;
     private JButton importButton;
     private JButton exportButton;
 
@@ -67,8 +69,8 @@ public class MainForm extends JFrame{
         return tableCheck;
     }
 
-    public JTextField getTextFieldSearch() {
-        return textFieldSearch;
+    public JTextField getTextFieldSearchDepartment() {
+        return textFieldSearchDepartment;
     }
 
     public JTable getTableStaff() {
@@ -91,7 +93,10 @@ public class MainForm extends JFrame{
         return comboBoxDepartment;
     }
 
-    
+    public JTextField getFileNameTextField() {
+        return fileNameTextField;
+    }
+
     //</editor-fold>
 
     //<editor-fold desc = "Constructors">
@@ -188,10 +193,6 @@ public class MainForm extends JFrame{
         addButton.addActionListener(actionListener);
     }
 
-    public void textFieldSearchListener(ActionListener actionListener){
-        textFieldSearch.addActionListener(actionListener);
-    }
-
     public void comboBoxEmployeeCheckListener(ActionListener actionListener){
         comboBoxEmployeeCheck.addActionListener(actionListener);
     }
@@ -200,6 +201,17 @@ public class MainForm extends JFrame{
         comboBoxDepartmentCheck.addActionListener(actionListener);
     }
 
+    public void importButtonListener(ActionListener actionListener){
+        importButton.addActionListener(actionListener);
+    }
+
+    public void exportButtonListener(ActionListener actionListener){
+        exportButton.addActionListener(actionListener);
+    }
+
+    public void textFieldSearchDepartmentListener(KeyListener actionListener){
+        textFieldSearchDepartment.addKeyListener(actionListener);
+    }
     //</editor-fold>
 
 

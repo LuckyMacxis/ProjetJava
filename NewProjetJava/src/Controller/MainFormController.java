@@ -6,13 +6,17 @@ import Model.company.Company;
 import Model.company.Department;
 import Model.company.Employee;
 import Model.company.Manager;
-
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyVetoException;
+import java.beans.VetoableChangeListener;
 
 public class MainFormController {
     private MainForm theView;
@@ -41,14 +45,17 @@ public class MainFormController {
         theView.radioButtonListener(new RadioButtonListener());
         theView.buttonSetAsChiefListener(new ButtonSetAsChiefListener());
         theView.buttonAddDepartmentListener(new ButtonAddDepartmentListener());
-        theView.textFieldSearchListener(new TextFieldSearchListener());
+        theView.textFieldSearchDepartmentListener(new TextFieldSearchDepartmentListener());
         theView.comboBoxDepartmentCheckListener(new ComboBoxDepartmentCheckListener());
         theView.comboBoxEmployeeCheckListener(new ComboBoxEmployeeCheckListener());
         theView.tabbedPaneListener(new tabbedPaneListener());
+        theView.importButtonListener(new ImportButtonListener());
+        theView.exportButtonListener(new ExportButtonListener());
 
         theView.getTableStaff().setRowSelectionAllowed(true);
         theView.getTableStaff().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         theView.getTableStaff().getTableHeader().setReorderingAllowed(false);
+
 
         updateComboBoxDepartment();
         try {
@@ -233,12 +240,14 @@ public class MainFormController {
             }
             if (manager == null)
                 break;
-            modelTableDepartment.addRow(new Object[]{
-                    d.getName(),
-                    manager.getFirstname(),
-                    d.getListEmployees().size(),
-                    d.getListManagers().size()
-            });
+            if (theView.getTextFieldSearchDepartment().getText().equals("") || d.getName().contains(theView.getTextFieldSearchDepartment().getText())) {
+                modelTableDepartment.addRow(new Object[]{
+                        d.getName(),
+                        manager.getFirstname(),
+                        d.getListEmployees().size(),
+                        d.getListManagers().size()
+                });
+            }
         }
         theView.getTableDepartment().setModel(modelTableDepartment);
 
@@ -360,7 +369,6 @@ public class MainFormController {
 
 
     //<editor-fold desc = "Class">
-
 
     private class ComboBoxDepartmentListener implements ActionListener {
         @Override
@@ -564,10 +572,20 @@ public class MainFormController {
         }
     }
 
-    private class TextFieldSearchListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
+    private class TextFieldSearchDepartmentListener implements KeyListener {
 
+        @Override
+        public void keyTyped(KeyEvent keyEvent) {
+        }
+
+        @Override
+        public void keyPressed(KeyEvent keyEvent) {
+            updateTableDepartment();
+        }
+
+        @Override
+        public void keyReleased(KeyEvent keyEvent) {
+            updateTableDepartment();
         }
     }
 
@@ -605,6 +623,55 @@ public class MainFormController {
                 updateComboBoxDepartmentCheck();
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    private class ImportButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            try {
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setAcceptAllFileFilterUsed(true);
+                int select=fileChooser.showOpenDialog(theView);
+                if(select==JFileChooser.APPROVE_OPTION){
+                    fileChooser.getSelectedFile().getName();
+                    String path = fileChooser.getSelectedFile().getAbsolutePath();
+                    int nb = company.importCSV(path);
+                    if (nb == 0)
+                        JOptionPane.showMessageDialog(null,"All the Employees have been successfully added to the company","Success",JOptionPane.INFORMATION_MESSAGE);
+                    if (nb != 0)
+                        JOptionPane.showMessageDialog(null,nb+" employee(s) have not been added to the company.\nProbably because of an id conflict","Success",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null,"can not read the selected file.","Error",JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        }
+    }
+
+    private class ExportButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            String fileName = theView.getFileNameTextField().getText();
+            if (fileName == null || fileName.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please enter a name", "Error", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            try {
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                int select=fileChooser.showOpenDialog(theView);
+                if(select==JFileChooser.APPROVE_OPTION){
+                    fileChooser.getSelectedFile().getName();
+                    String path = fileChooser.getSelectedFile().getAbsolutePath();
+                    path = path +"/"+fileName+".csv";
+                    company.exportCSV(path);
+                    JOptionPane.showMessageDialog(null,"List of employee successfully exported","Success",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null,"can not read the selected file.","Error",JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }

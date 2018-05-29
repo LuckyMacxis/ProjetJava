@@ -45,6 +45,15 @@ public class Employee extends Person {
         departureTime = null;
     }
 
+    public Employee(String lastname, String firstname, String mail, DateAndTime departureTime, DateAndTime arrivingTime) throws Exception {
+        super(lastname,firstname,mail);
+        this.additionalTime = 0;
+        this.arrivingTime = arrivingTime;
+        this.departureTime = departureTime;
+        this.id = counter;
+        counter++;
+    }
+
     //</editor-fold>
 
     //<editor-fold desc = "Get and Set">

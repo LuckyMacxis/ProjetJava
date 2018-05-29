@@ -1,8 +1,16 @@
 package Model.company;
 
 import Model.Time.Check;
+import Model.Time.DateAndTime;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.FileWriter;
+import java.io.BufferedReader;
 
 public class Company implements Serializable {
 
@@ -182,7 +190,7 @@ public class Company implements Serializable {
             if (m.getId() == id)
                 return m;
         }
-        throw new Exception("Company : searchManagerWithId : This id isn't the the company");
+        throw new Exception("Company : searchEmployeeWithId : This id isn't the the company");
     }
 
     /**
@@ -455,6 +463,56 @@ public class Company implements Serializable {
         }
         throw new Exception("deserialization failed");
 
+    }
+
+    public int importCSV(String file) throws Exception {
+        int counter = 0;
+        BufferedReader fileReader = new BufferedReader(new FileReader(file));
+        String line = "";
+        fileReader.readLine();
+        boolean exist = false;
+        while((line = fileReader.readLine()) != null){
+            String[] tab = line.split(",");
+            try {
+                searchEmployeeWithId(Integer.parseInt(tab[0]));
+                exist = true;
+            } catch (Exception e) {}
+
+            try {
+                searchManagerWithId(Integer.parseInt(tab[0]));
+                exist = true;
+            } catch (Exception e) {}
+
+            if (!exist){
+                if (tab[6].equals("manager")){
+                    Manager m = new Manager(tab[1],tab[2],tab[3],new DateAndTime(tab[4],DateAndTime.TIME),new DateAndTime(tab[5],DateAndTime.TIME));
+                    addManager(m);
+                }
+                if (tab[6].equals("employee")){
+                    Employee e = new Employee(tab[1],tab[2],tab[3],new DateAndTime(tab[4],DateAndTime.TIME),new DateAndTime(tab[5],DateAndTime.TIME));
+                    addEmployee(e);
+                }
+            }else{counter++;}
+        }
+        return counter;
+
+    }
+
+    public void exportCSV(String file) throws IOException {
+        FileWriter writer = new FileWriter(file);
+        String header = "Id,First Name, Last Name,mail,Departure Time,Arriving Time,Rank\n";
+        String row;
+        writer.append(header);
+        for (Employee e : listEmployees) {
+            row = Integer.toString(e.getId())+","+e.getFirstname()+","+e.getLastname()+","+e.getMail()+","+e.getArrivingTime().toString()+","+e.getDepartureTime().toString()+",employee\n";
+            writer.append(row);
+        }
+        for (Manager e : listManagers) {
+            row = Integer.toString(e.getId())+","+e.getFirstname()+","+e.getLastname()+","+e.getMail()+","+e.getArrivingTime().toString()+","+e.getDepartureTime().toString()+",manager\n";
+            writer.append(row);
+        }
+
+        writer.close();
     }
 
     //</editor-fold>

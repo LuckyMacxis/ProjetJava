@@ -31,6 +31,11 @@ public class Manager extends Employee {
         chief = false;
     }
 
+    public Manager(String lastname, String firstname, String mail, DateAndTime departureTime, DateAndTime arrivingTime) throws Exception {
+        super(lastname,firstname,mail,departureTime,arrivingTime);
+        this.chief = false;
+    }
+
     //</editor-fold>
 
     //<editor-fold desc = "Get and Set">
