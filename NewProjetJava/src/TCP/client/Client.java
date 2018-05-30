@@ -24,21 +24,19 @@ public class Client extends TCPClientBuilder implements Runnable {
             //s.setSoTimeout(1000);
            while (true){
                try {
+                   status = false;
                    while (!status)
                        connection();
                    System.out.println("\n Client online");
                    FileOutputStream out = new FileOutputStream(new File(file));
                    InputStream f = s.getInputStream();
                    byte[] buffer = new byte[8192];
-                   StringBuffer sBuffer = new StringBuffer(8192);
+                   //StringBuffer sBuffer = new StringBuffer(8192);
                    if(f!=null)
                    {
                        do{
-                           sBuffer.delete(0, sBuffer.length());
                            f.read(buffer);
                            out.write(buffer);
-                           sBuffer.append(buffer);
-                           System.out.println(sBuffer.toString());
                        }while(f.read()>0);
                        Check check = Check.deserialize();
                        if (company.isEmployeeIn(check.getEmployee())){
@@ -64,7 +62,8 @@ public class Client extends TCPClientBuilder implements Runnable {
 
     }
 
-    private void connection(){
+    public void connection(){
+        status = false;
         try{
             setSocket();
             status = true;

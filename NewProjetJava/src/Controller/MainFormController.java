@@ -6,6 +6,9 @@ import Model.company.Company;
 import Model.company.Department;
 import Model.company.Employee;
 import Model.company.Manager;
+import TCP.client.Client;
+import TCP.server.Server;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -23,6 +26,10 @@ public class MainFormController {
 
     private Company company;
 
+    private Server server;
+
+    private Client client;
+
     public class MyModelTable extends DefaultTableModel{
         @Override
         public boolean isCellEditable(int i, int i1) {
@@ -34,13 +41,9 @@ public class MainFormController {
         this.theView = mainForm;
         this.company = company;
 
-        theView.addStaffListener(new StaffListener());
-        theView.addDepartmentListener(new DepartmentListener());
         theView.addComboBoxDepartmentListener(new ComboBoxDepartmentListener());
-        theView.employeeCheckHistoryListener(new CheckHistoryListener());
         theView.addButtonDeleteFromCompanyListener(new ButtonDeleteFromCompanyListener());
         theView.addButtonDeleteFromDepartmentListener(new ButtonDeleteFromDepartmentListener());
-        theView.assignStaffListener(new AssignStaffListener());
         theView.buttonDeleteDepartmentListener(new ButtonDeleteDepartmentListener());
         theView.radioButtonListener(new RadioButtonListener());
         theView.buttonSetAsChiefListener(new ButtonSetAsChiefListener());
@@ -51,10 +54,22 @@ public class MainFormController {
         theView.tabbedPaneListener(new tabbedPaneListener());
         theView.importButtonListener(new ImportButtonListener());
         theView.exportButtonListener(new ExportButtonListener());
+        theView.textFieldSearchStaffListener(new TextFieldSearchStaffListener());
+        theView.assignButtonListener(new AssignButtonListener());
+        theView.addStaffButtonListener(new AddStaffButtonListener());
+        theView.okButtonListener(new OkButtonListener());
 
         theView.getTableStaff().setRowSelectionAllowed(true);
         theView.getTableStaff().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         theView.getTableStaff().getTableHeader().setReorderingAllowed(false);
+
+        server = new Server();
+        server.start();
+
+        client = new Client("tmp/check.serial",company);
+        client.start();
+
+
 
 
         updateComboBoxDepartment();
@@ -92,63 +107,38 @@ public class MainFormController {
             if (theView.getBothRadioButton().isSelected() || theView.getManagersOnlyRadioButton().isSelected()) {
                 for (Manager m : company.getListManagers()) {
                     if (m.isChief()) {
-                        modelTableStaff.addRow(new Object[]{
-                                m.getId(),
-                                m.getFirstname(),
-                                m.getLastname(),
-                                "Chief",
-                                m.getArrivingTime().toString(),
-                                m.getDepartureTime().toString(),
-                                m.getAdditionalTime()
-                        });
+                        if (theView.getTextFieldSearchStaff().getText().equals("") || m.getFirstname().contains(theView.getTextFieldSearchStaff().getText())
+                                || m.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
+                            modelTableStaff.addRow(new Object[]{
+                                    m.getId(),
+                                    m.getFirstname(),
+                                    m.getLastname(),
+                                    "Chief",
+                                    m.getArrivingTime().toString(),
+                                    m.getDepartureTime().toString(),
+                                    m.getAdditionalTime()
+                            });
+                        }
                     } else {
-                        modelTableStaff.addRow(new Object[]{
-                                m.getId(),
-                                m.getFirstname(),
-                                m.getLastname(),
-                                "Manager",
-                                m.getArrivingTime().toString(),
-                                m.getDepartureTime().toString(),
-                                m.getAdditionalTime()
-                        });
+                        if (theView.getTextFieldSearchStaff().getText().equals("") || m.getFirstname().contains(theView.getTextFieldSearchStaff().getText())
+                                || m.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
+                            modelTableStaff.addRow(new Object[]{
+                                    m.getId(),
+                                    m.getFirstname(),
+                                    m.getLastname(),
+                                    "Manager",
+                                    m.getArrivingTime().toString(),
+                                    m.getDepartureTime().toString(),
+                                    m.getAdditionalTime()
+                            });
+                        }
                     }
                 }
             }
             if (theView.getBothRadioButton().isSelected() || theView.getEmployeeOnlyRadioButton().isSelected()) {
                 for (Employee e : company.getListEmployees()) {
-                    modelTableStaff.addRow(new Object[]{
-                            e.getId(),
-                            e.getFirstname(),
-                            e.getLastname(),
-                            "Employee",
-                            e.getArrivingTime().toString(),
-                            e.getDepartureTime().toString(),
-                            e.getAdditionalTime()
-                    });
-                }
-            }
-        }
-
-        if (theView.getComboBoxDepartment().getSelectedItem().toString().equals("None")){
-
-            if (theView.getBothRadioButton().isSelected() || theView.getManagersOnlyRadioButton().isSelected()) {
-                for (Manager m : company.getListManagers()) {
-                    if (!company.isInADepartment(m))
-                        modelTableStaff.addRow(new Object[]{
-                                m.getId(),
-                                m.getFirstname(),
-                                m.getLastname(),
-                                "Manager",
-                                m.getArrivingTime().toString(),
-                                m.getDepartureTime().toString(),
-                                m.getAdditionalTime()
-                        });
-                    }
-                }
-
-            if (theView.getBothRadioButton().isSelected() || theView.getEmployeeOnlyRadioButton().isSelected()) {
-                for (Employee e : company.getListEmployees()) {
-                    if (!company.isInADepartment(e)) {
+                    if (theView.getTextFieldSearchStaff().getText().equals("") || e.getFirstname().contains(theView.getTextFieldSearchStaff().getText())
+                            || e.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
                         modelTableStaff.addRow(new Object[]{
                                 e.getId(),
                                 e.getFirstname(),
@@ -163,44 +153,93 @@ public class MainFormController {
             }
         }
 
+        if (theView.getComboBoxDepartment().getSelectedItem().toString().equals("None")){
+
+            if (theView.getBothRadioButton().isSelected() || theView.getManagersOnlyRadioButton().isSelected()) {
+                for (Manager m : company.getListManagers()) {
+                    if (theView.getTextFieldSearchStaff().getText().equals("") || m.getFirstname().contains(theView.getTextFieldSearchStaff().getText())
+                            || m.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
+                        if (!company.isInADepartment(m))
+                            modelTableStaff.addRow(new Object[]{
+                                    m.getId(),
+                                    m.getFirstname(),
+                                    m.getLastname(),
+                                    "Manager",
+                                    m.getArrivingTime().toString(),
+                                    m.getDepartureTime().toString(),
+                                    m.getAdditionalTime()
+                            });
+                        }
+                    }
+                }
+
+            if (theView.getBothRadioButton().isSelected() || theView.getEmployeeOnlyRadioButton().isSelected()) {
+                for (Employee e : company.getListEmployees()) {
+                    if (!company.isInADepartment(e)) {
+                        if (theView.getTextFieldSearchStaff().getText().equals("") || e.getFirstname().contains(theView.getTextFieldSearchStaff().getText())
+                                || e.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
+                            modelTableStaff.addRow(new Object[]{
+                                    e.getId(),
+                                    e.getFirstname(),
+                                    e.getLastname(),
+                                    "Employee",
+                                    e.getArrivingTime().toString(),
+                                    e.getDepartureTime().toString(),
+                                    e.getAdditionalTime()
+                            });
+                        }
+                    }
+                }
+            }
+        }
+
         if (!theView.getComboBoxDepartment().getSelectedItem().toString().equals("None") && !theView.getComboBoxDepartment().getSelectedItem().toString().equals("All")){
             Department department = company.searchDepartment(theView.getComboBoxDepartment().getSelectedItem().toString());
             if (theView.getBothRadioButton().isSelected() || theView.getManagersOnlyRadioButton().isSelected()) {
                 for (Manager m : department.getListManagers()) {
                     if (m.isChief()) {
-                        modelTableStaff.addRow(new Object[]{
-                                m.getId(),
-                                m.getFirstname(),
-                                m.getLastname(),
-                                "Chief",
-                                m.getArrivingTime().toString(),
-                                m.getDepartureTime().toString(),
-                                m.getAdditionalTime()
-                        });
+                        if (theView.getTextFieldSearchStaff().getText().equals("") || m.getFirstname().contains(theView.getTextFieldSearchStaff().getText())
+                                || m.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
+                            modelTableStaff.addRow(new Object[]{
+                                    m.getId(),
+                                    m.getFirstname(),
+                                    m.getLastname(),
+                                    "Chief",
+                                    m.getArrivingTime().toString(),
+                                    m.getDepartureTime().toString(),
+                                    m.getAdditionalTime()
+                            });
+                        }
                     } else {
-                        modelTableStaff.addRow(new Object[]{
-                                m.getId(),
-                                m.getFirstname(),
-                                m.getLastname(),
-                                "Manager",
-                                m.getArrivingTime().toString(),
-                                m.getDepartureTime().toString(),
-                                m.getAdditionalTime()
-                        });
+                        if (theView.getTextFieldSearchStaff().getText().equals("") || m.getFirstname().contains(theView.getTextFieldSearchStaff().getText())
+                                || m.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
+                            modelTableStaff.addRow(new Object[]{
+                                    m.getId(),
+                                    m.getFirstname(),
+                                    m.getLastname(),
+                                    "Manager",
+                                    m.getArrivingTime().toString(),
+                                    m.getDepartureTime().toString(),
+                                    m.getAdditionalTime()
+                            });
+                        }
                     }
                 }
             }
             if (theView.getBothRadioButton().isSelected() || theView.getEmployeeOnlyRadioButton().isSelected()) {
                 for (Employee e : department.getListEmployees()) {
-                    modelTableStaff.addRow(new Object[]{
-                            e.getId(),
-                            e.getFirstname(),
-                            e.getLastname(),
-                            "Employee",
-                            e.getArrivingTime().toString(),
-                            e.getDepartureTime().toString(),
-                            e.getAdditionalTime()
-                    });
+                    if (theView.getTextFieldSearchStaff().getText().equals("") || e.getFirstname().contains(theView.getTextFieldSearchStaff().getText())
+                            || e.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
+                        modelTableStaff.addRow(new Object[]{
+                                e.getId(),
+                                e.getFirstname(),
+                                e.getLastname(),
+                                "Employee",
+                                e.getArrivingTime().toString(),
+                                e.getDepartureTime().toString(),
+                                e.getAdditionalTime()
+                        });
+                    }
                 }
             }
         }
@@ -365,6 +404,19 @@ public class MainFormController {
         theView.getTableCheck().setModel(model);
     }
 
+    public void updateComboBoxAvailableStaff() throws Exception {
+        theView.getComboBoxAvailableStaff().removeAllItems();
+        for (Manager m : company.getListManagers()) {
+            if (!company.isInADepartment(m))
+                theView.getComboBoxAvailableStaff().addItem("M"+" "+m.getId()+" "+m.getLastname()+" "+m.getFirstname());
+        }
+
+        for (Employee e : company.getListEmployees()) {
+            if (!company.isInADepartment(e))
+                theView.getComboBoxAvailableStaff().addItem(e.getId()+" "+e.getLastname()+" "+e.getFirstname());
+        }
+    }
+
     //</editor-fold desc = "Update Method">
 
 
@@ -381,40 +433,6 @@ public class MainFormController {
                     e.printStackTrace();
                 }
             }
-        }
-    }
-
-    private class StaffListener implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
-            FormAddStaff f = new FormAddStaff(theView,"test",company.getListDepartment());
-            AddStaffController addStaffControl = new AddStaffController(f,company);
-            f.setVisible(true);
-            try {
-                updateTableStaff();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private class DepartmentListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
-            FormAddDepartment f = new FormAddDepartment(theView,"Add department");
-            AddDepartmentController addDepControl = new AddDepartmentController(f,company);
-            f.setVisible(true);
-            updateComboBoxDepartment();
-        }
-    }
-
-    private class CheckHistoryListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
-            FormCheckHistory formCheckHistory = new FormCheckHistory(theView,"Checks history");
-            ChecksHistoryController checksHistoryController = new ChecksHistoryController(formCheckHistory,company);
-            formCheckHistory.setVisible(true);
         }
     }
 
@@ -476,24 +494,6 @@ public class MainFormController {
             }catch (Exception e){
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-
-    private class AssignStaffListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
-            FormAssignStaff formAssignStaff = new FormAssignStaff(theView,"Assign Staff");
-            try {
-                AssignStaffController assignStaffController = new AssignStaffController(formAssignStaff,company);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            formAssignStaff.setVisible(true);
-            try {
-                updateTableStaff();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
@@ -565,6 +565,7 @@ public class MainFormController {
                 theView.getTextFieldNameDepartment().setText("");
                 updateComboBoxChief();
                 updateTableDepartment();
+                updateComboBoxAvailableStaff();
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
             }
@@ -621,6 +622,7 @@ public class MainFormController {
                 updateTableDepartment();
                 updateTableChecks();
                 updateComboBoxDepartmentCheck();
+                updateComboBoxAvailableStaff();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -675,6 +677,91 @@ public class MainFormController {
             }
         }
     }
+
+    private class TextFieldSearchStaffListener implements KeyListener {
+        @Override
+        public void keyTyped(KeyEvent keyEvent) {
+
+        }
+
+        @Override
+        public void keyPressed(KeyEvent keyEvent) {
+            try {
+                updateTableStaff();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent keyEvent) {
+            try {
+                updateTableStaff();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class AssignButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            try {
+                int nbRow;
+                nbRow = theView.getTableDepartment().getSelectedRow();
+                if (nbRow == -1)
+                    throw new Exception("Please select a department");
+                String departmentName = theView.getTableDepartment().getValueAt(nbRow,0).toString();
+                String[] tab = theView.getComboBoxAvailableStaff().getSelectedItem().toString().split(" ");
+                if (tab[0].equals("M")){
+                    company.addManagerToDepartment(company.searchManagerWithId(Integer.parseInt(tab[1])),company.searchDepartment(departmentName));
+                }else{
+                    company.addEmployeeToDepartment(company.searchEmployeeWithId(Integer.parseInt(tab[0])),company.searchDepartment(departmentName));
+                }
+                updateTableDepartment();
+                updateComboBoxAvailableStaff();
+                updateComboBoxChief();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }
+
+    private class AddStaffButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            FormAddStaff f = new FormAddStaff(theView,"test",company.getListDepartment());
+            AddStaffController addStaffControl = new AddStaffController(f,company);
+            f.setVisible(true);
+            try {
+                updateTableStaff();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class OkButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            try {
+                if (theView.getTextFieldIp().getText().equals("") || theView.getTextFieldIp().getText() == null
+                        || theView.getTextFieldPortClient().getText().equals("") || theView.getTextFieldPortClient().getText() == null
+                        || theView.getTextFieldPortServer().getText().equals("") || theView.getTextFieldPortServer().getText() == null) {
+                    throw new Exception("Please enter valid Ip and ports");
+                } else {
+
+                    server.setPort(Integer.parseInt(theView.getTextFieldPortServer().getText()));
+                    client.setAddressPort(theView.getTextFieldIp().getText(),Integer.parseInt(theView.getTextFieldPortClient().getText()));
+
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }
+
 
     //</editor-fold>
 

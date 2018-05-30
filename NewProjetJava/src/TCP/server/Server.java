@@ -6,22 +6,27 @@ public class Server extends TCPServerBuilder implements Runnable {
 
     @Override
     public void run() {
-        try{
+        try {
             setSocket();
-            //ssInfo("The server sets the passive socket", ss);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
             while(true)
             {
-                s = ss.accept();
-                if(s!=null)
-                {
-                    System.out.println("conected");
-                    new Thread(new ServerTh(s,"save/company.serial")).start();
+                try{
+                    ss.setSoTimeout(1500);
+                    s = ss.accept();
+                    if(s!=null)
+                    {
+                        System.out.println("connected");
+                        new Thread(new ServerTh(s,"save/company.serial")).start();
+                    }
+                }catch(IOException e){
+                    System.out.println("Serveur file :" + e.getMessage());
                 }
             }
 
-        }	catch(IOException e){
-            System.out.println("Serveur file :" + e.getMessage());
-        }
+
     }
 }
 

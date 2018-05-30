@@ -5,18 +5,30 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class TCPServerBuilder {
-    protected ServerSocket ss;
-    protected Socket s; // the passive and active sockets
-    protected InetSocketAddress isA; // the address
+public class TCPServerBuilder extends Thread{
+    protected volatile   ServerSocket ss;
+    protected volatile Socket s; // the passive and active sockets
+    protected volatile InetSocketAddress isA; // the address
+    private volatile int port = 8081;
 
     /** The main method for threading. */
     TCPServerBuilder() {
     }
 
-    void setSocket() throws IOException{
+    public void setSocket() throws IOException{
         s = null;
-        isA = new InetSocketAddress("localhost", 8081);
+        isA = new InetSocketAddress("localhost", port);
         ss = new ServerSocket(isA.getPort());
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) throws IOException {
+        this.port = port;
+        if (ss!=null)
+            ss.close();
+        ss = new ServerSocket(port);
     }
 }

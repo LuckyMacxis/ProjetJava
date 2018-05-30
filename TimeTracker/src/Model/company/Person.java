@@ -18,7 +18,7 @@ public abstract class Person implements Serializable
      * @param lastname -
      * @param firstname -
      */
-    public Person(String mail, String lastname, String firstname) throws Exception {
+    public Person(String lastname, String firstname, String mail) throws Exception {
         this(lastname,firstname);
         this.mail = mail;
     }

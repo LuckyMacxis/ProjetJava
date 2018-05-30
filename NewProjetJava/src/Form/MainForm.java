@@ -8,14 +8,6 @@ import java.beans.VetoableChangeListener;
 
 public class MainForm extends JFrame{
 
-    private JMenuBar menuBar;
-    private JMenu menuStaff;
-    private JMenuItem menuAddStaff;
-    private JMenuItem menuAssignStaff;
-    private JMenu menuDepartment;
-    private JMenuItem menuAddDepartment;
-    private JMenu menuCheck;
-    private JMenuItem menuEmployeeChecksHistory;
     private JPanel mainPanel;
     private JComboBox comboBoxDepartment;
     private JButton buttonDeleteFromDepartment;
@@ -35,15 +27,37 @@ public class MainForm extends JFrame{
     private JComboBox comboBoxDepartmentCheck;
     private JTable tableCheck;
     private JTextField textFieldSearchDepartment;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField textFieldIp;
+    private JTextField textFieldPortServer;
     private JTextField fileNameTextField;
     private JButton importButton;
     private JButton exportButton;
+    private JTextField textFieldSearchStaff;
+    private JComboBox comboBoxAvailableStaff;
+    private JButton assignButton;
+    private JButton addStaffButton;
+    private JButton okButton;
+    private JTextField textFieldPortClient;
 
 
     //<editor-fold desc = "Get and Set">
 
+
+    public JTextField getTextFieldIp() {
+        return textFieldIp;
+    }
+
+    public JTextField getTextFieldPortServer() {
+        return textFieldPortServer;
+    }
+
+    public JTextField getTextFieldPortClient() {
+        return textFieldPortClient;
+    }
+
+    public JComboBox getComboBoxAvailableStaff() {
+        return comboBoxAvailableStaff;
+    }
 
     public JTable getTableDepartment() {
         return jTableDepartment;
@@ -97,67 +111,23 @@ public class MainForm extends JFrame{
         return fileNameTextField;
     }
 
+    public JTextField getTextFieldSearchStaff() {
+        return textFieldSearchStaff;
+    }
+
     //</editor-fold>
 
     //<editor-fold desc = "Constructors">
 
     public MainForm(){
-        setSize(1000,300);
+        setSize(1000,400);
         setContentPane(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        initMenu();
     }
 
     //</editor-fold>
 
     //<editor-fold desc = "Method">
-
-    /**
-     * Init the menu of the mainForm
-     */
-    private void initMenu(){
-
-        menuBar = new JMenuBar();
-
-        menuStaff = new JMenu("Staff");
-        menuAddStaff = new JMenuItem("Add");
-        menuAssignStaff = new JMenuItem("Assign");
-        menuBar.add(menuStaff);
-        menuStaff.add(menuAddStaff);
-        menuStaff.add(menuAssignStaff);
-
-
-        menuDepartment = new JMenu("Department");
-        menuAddDepartment = new JMenuItem("Add");
-        menuBar.add(menuDepartment);
-        menuDepartment.add(menuAddDepartment);
-
-        menuCheck = new JMenu("Check");
-        menuEmployeeChecksHistory = new JMenuItem("Employees' checks history");
-        menuBar.add(menuCheck);
-        menuCheck.add(menuEmployeeChecksHistory);
-
-        setJMenuBar(menuBar);
-
-
-    }
-
-
-    public void addStaffListener(ActionListener staffListener){
-        menuAddStaff.addActionListener(staffListener);
-    }
-
-    public void assignStaffListener(ActionListener staffListener){
-        menuAssignStaff.addActionListener(staffListener);
-    }
-
-    public void addDepartmentListener(ActionListener departmentListener) {
-        menuAddDepartment.addActionListener(departmentListener);
-    }
-
-    public void employeeCheckHistoryListener(ActionListener checkListener){
-        menuEmployeeChecksHistory.addActionListener(checkListener);
-    }
 
     public void addComboBoxDepartmentListener(ActionListener comboBoxDepartmentListener){
         comboBoxDepartment.addActionListener(comboBoxDepartmentListener);
@@ -211,6 +181,22 @@ public class MainForm extends JFrame{
 
     public void textFieldSearchDepartmentListener(KeyListener actionListener){
         textFieldSearchDepartment.addKeyListener(actionListener);
+    }
+
+    public void textFieldSearchStaffListener(KeyListener actionListener){
+        textFieldSearchStaff.addKeyListener(actionListener);
+    }
+
+    public void assignButtonListener(ActionListener actionListener){
+        assignButton.addActionListener(actionListener);
+    }
+
+    public void addStaffButtonListener(ActionListener actionListener){
+        addStaffButton.addActionListener(actionListener);
+    }
+
+    public void okButtonListener(ActionListener actionListener){
+        okButton.addActionListener(actionListener);
     }
     //</editor-fold>
 

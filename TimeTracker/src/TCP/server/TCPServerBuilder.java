@@ -17,6 +17,8 @@ public class TCPServerBuilder {
     void setSocket() throws IOException{
         s = null;
         isA = new InetSocketAddress("localhost", 8080);
+        if (ss!=null)
+            ss.close();
         ss = new ServerSocket(isA.getPort());
     }
 }

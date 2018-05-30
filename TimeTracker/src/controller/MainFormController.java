@@ -18,7 +18,7 @@ public class MainFormController {
 
     MainForm theView;
     Company company;
-    ArrayList<Check> listCheck = new ArrayList<>();
+    volatile ArrayList<Check> listCheck = new ArrayList<>();
 
     public void setCompany(Company company) {
         this.company = company;
@@ -54,8 +54,10 @@ public class MainFormController {
                         DateAndTime dateAndTime = new DateAndTime(LocalDate.now(),LocalTime.now());
                         check = new Check(employee,dateAndTime);
                     }
-                    if (check!=null)
+                    if (check!=null) {
                         listCheck.add(check);
+                        System.out.println(listCheck.size());
+                    }
                 }
 
             } catch (Exception e) {

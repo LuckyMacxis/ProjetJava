@@ -45,6 +45,15 @@ public class Employee extends Person {
         departureTime = null;
     }
 
+    public Employee(String lastname, String firstname, String mail, DateAndTime departureTime, DateAndTime arrivingTime) throws Exception {
+        super(lastname,firstname,mail);
+        this.additionalTime = 0;
+        this.arrivingTime = arrivingTime;
+        this.departureTime = departureTime;
+        this.id = counter;
+        counter++;
+    }
+
     //</editor-fold>
 
     //<editor-fold desc = "Get and Set">
@@ -95,6 +104,8 @@ public class Employee extends Person {
      *                   or if the check is anterior of the last check of the employee
      */
     public void addCheck(Check check) throws Exception {
+        check.setArrivingTime(null);
+        check.setDepartureTime(null);
         if (check == null)
             throw new Exception("Person null arguments");
         if (this.getId() != check.getEmployee().getId())
