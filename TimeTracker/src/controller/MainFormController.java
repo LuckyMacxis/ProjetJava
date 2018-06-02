@@ -8,17 +8,25 @@ import Model.company.Manager;
 import TCP.client.Client;
 import TCP.server.Server;
 import form.MainForm;
+
+import javax.swing.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class MainFormController {
 
-    MainForm theView;
-    Company company;
-    volatile ArrayList<Check> listCheck = new ArrayList<>();
+    private MainForm theView;
+    private Company company;
+    private Client client;
+    private Server server;
+    private volatile ArrayList<Check> listCheck = new ArrayList<>();
 
     public void setCompany(Company company) {
         this.company = company;
@@ -28,13 +36,27 @@ public class MainFormController {
         return company;
     }
 
+    public void updateTextFieldParameter(){
+        theView.getTextFieldPortServer().setText(Integer.toString(server.getPort()));
+        theView.getTextFieldPortClient().setText(Integer.toString(client.getPort()));
+        theView.getTextFieldIp().setText(client.getAddress());
+    }
+
     public MainFormController(MainForm mainForm){
-        new Thread(new Server(listCheck)).start();
         theView = mainForm;
 
         theView.buttonCheckListener(new ButtonCheckListener());
-        theView.buttonOptionListener(new ButtonOptionListener());
         theView.buttonSyncListener(new ButtonSyncListener());
+        theView.okButtonListener(new OkButtonListener());
+        try {
+            server = new Server(listCheck);
+            server.start();
+            client = new Client("save/company.serial", this);
+            client.start();
+            updateTextFieldParameter();
+        }catch (IOException e){
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     private class ButtonCheckListener implements ActionListener {
@@ -66,17 +88,12 @@ public class MainFormController {
         }
     }
 
-    private class ButtonOptionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
-
-        }
-    }
-
     private class ButtonSyncListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            new Thread(new Client("save/company.serial",MainFormController.this)).start();
+            synchronized (client) {
+                client.notify();
+            }
         }
     }
 
@@ -91,5 +108,28 @@ public class MainFormController {
                     theView.getComboBoxEmployee().addItem("M "+m.getId()+" "+m.getLastname()+" "+m.getFirstname());
                 }
                 return ;
+    }
+
+    private class OkButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            try {
+                String portServer = theView.getTextFieldPortServer().getText();
+                String portClient = theView.getTextFieldPortClient().getText();
+                String address = theView.getTextFieldIp().getText();
+                Properties config = new Properties();
+                config.loadFromXML(new FileInputStream("config/config.xml"));
+                config.setProperty("Ip",address);
+                config.setProperty("portServer",portServer);
+                config.setProperty("portClient",portClient);
+                server.setPort(Integer.parseInt(portServer));
+                client.setAddressPort(address, Integer.parseInt(portClient));
+                config.storeToXML(new FileOutputStream("config/config.xml"),null);
+            } catch (IOException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
+            }
+            updateTextFieldParameter();
+        }
     }
 }

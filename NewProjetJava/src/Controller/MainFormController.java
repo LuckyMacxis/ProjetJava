@@ -17,9 +17,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyVetoException;
-import java.beans.VetoableChangeListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Properties;
 
 public class MainFormController {
     private MainForm theView;
@@ -29,6 +31,8 @@ public class MainFormController {
     private Server server;
 
     private Client client;
+
+    private int incidentThreshold = 30;
 
     public class MyModelTable extends DefaultTableModel{
         @Override
@@ -58,16 +62,23 @@ public class MainFormController {
         theView.assignButtonListener(new AssignButtonListener());
         theView.addStaffButtonListener(new AddStaffButtonListener());
         theView.okButtonListener(new OkButtonListener());
+        theView.validateButtonListener(new ValidateButtonListener());
+        theView.radioButtonChecksListener(new radioButtonChecksListener());
 
         theView.getTableStaff().setRowSelectionAllowed(true);
         theView.getTableStaff().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         theView.getTableStaff().getTableHeader().setReorderingAllowed(false);
 
-        server = new Server();
-        server.start();
+        try {
+            server = new Server();
+            server.start();
 
-        client = new Client("tmp/check.serial",company);
-        client.start();
+            client = new Client("tmp/check.serial",company);
+            client.start();
+        }catch (IOException e){
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
+        }
+
 
 
 
@@ -358,23 +369,43 @@ public class MainFormController {
             theView.getTableCheck().setModel(model);
             return;
         }
+        String time;
+        String date;
 
         if (selectedItem.split(" ")[0].equals("M")){
             Manager manager = company.searchManagerWithId(Integer.parseInt(selectedItem.split(" ")[1]));
             for (Check c:manager.getListCheck()) {
-                if(c.getArrivingTime() != null){
+                if(c.getArrivingTime() != null && (theView.getAllChecksRadioButton().isSelected() || (c.getCheck().getDate().equals(LocalDate.now())))){
+                    if (c.getCheck().getTime().getHour()*60+c.getCheck().getTime().getMinute()
+                            - (c.getArrivingTime().getTime().getHour()*60+c.getArrivingTime().getTime().getMinute())
+                            > incidentThreshold){
+                        date = "<html><font color=\"red\">"+c.getCheck().getDate().toString()+"</font></html>";
+                        time = "<html><font color=\"red\">"+c.getCheck().getTime().toString()+"</font></html>";
+                    }else{
+                        date = c.getCheck().getDate().toString();
+                        time = c.getCheck().getTime().toString();
+                    }
                     model.addRow(new Object[]{
                             manager.getFirstname()+" "+manager.getLastname(),
-                            c.getCheck().getDate(),
-                            c.getCheck().getTime(),
+                            date,
+                            time,
                             c.getArrivingTime()
                     });
                 }
-                if(c.getDepartureTime() != null){
+                if(c.getDepartureTime() != null && (theView.getAllChecksRadioButton().isSelected() || (c.getCheck().getDate().equals(LocalDate.now())))){
+                    if (c.getCheck().getTime().getHour()*60+c.getCheck().getTime().getMinute()
+                            - (c.getDepartureTime().getTime().getHour()*60+c.getDepartureTime().getTime().getMinute())
+                            < -incidentThreshold){
+                        date = "<html><font color=\"red\">"+c.getCheck().getDate().toString()+"</font></html>";
+                        time = "<html><font color=\"red\">"+c.getCheck().getTime().toString()+"</font></html>";
+                    }else{
+                        date = c.getCheck().getDate().toString();
+                        time = c.getCheck().getTime().toString();
+                    }
                     model.addRow(new Object[]{
                             manager.getFirstname()+" "+manager.getLastname(),
-                            c.getCheck().getDate(),
-                            c.getCheck().getTime(),
+                            date,
+                            time,
                             c.getDepartureTime()
                     });
                 }
@@ -382,19 +413,37 @@ public class MainFormController {
         }else{
             Employee employee= company.searchEmployeeWithId(Integer.parseInt(selectedItem.split(" ")[0]));
             for (Check c:employee.getListCheck()) {
-                if(c.getArrivingTime() != null){
+                if(c.getArrivingTime() != null && (theView.getAllChecksRadioButton().isSelected() || (c.getCheck().getDate().equals(LocalDate.now())))){
+                    if (c.getCheck().getTime().getHour()*60+c.getCheck().getTime().getMinute()
+                            - (c.getArrivingTime().getTime().getHour()*60+c.getArrivingTime().getTime().getMinute())
+                            > incidentThreshold){
+                        date = "<html><font color=\"red\">"+c.getCheck().getDate().toString()+"</font></html>";
+                        time = "<html><font color=\"red\">"+c.getCheck().getTime().toString()+"</font></html>";
+                    }else{
+                        date = c.getCheck().getDate().toString();
+                        time = c.getCheck().getTime().toString();
+                    }
                     model.addRow(new Object[]{
                             employee.getFirstname()+" "+employee.getLastname(),
-                            c.getCheck().getDate(),
-                            c.getCheck().getTime(),
+                            date,
+                            time,
                             c.getArrivingTime()
                     });
                 }
-                if(c.getDepartureTime() != null){
+                if(c.getDepartureTime() != null && (theView.getAllChecksRadioButton().isSelected() || (c.getCheck().getDate().equals(LocalDate.now())))){
+                    if (c.getCheck().getTime().getHour()*60+c.getCheck().getTime().getMinute()
+                            - (c.getDepartureTime().getTime().getHour()*60+c.getDepartureTime().getTime().getMinute())
+                            < -incidentThreshold){
+                        date = "<html><font color=\"red\">"+c.getCheck().getDate().toString()+"</font></html>";
+                        time = "<html><font color=\"red\">"+c.getCheck().getTime().toString()+"</font></html>";
+                    }else{
+                        date = c.getCheck().getDate().toString();
+                        time = c.getCheck().getTime().toString();
+                    }
                     model.addRow(new Object[]{
                             employee.getFirstname()+" "+employee.getLastname(),
-                            c.getCheck().getDate(),
-                            c.getCheck().getTime(),
+                            date,
+                            time,
                             c.getDepartureTime()
                     });
                 }
@@ -417,8 +466,14 @@ public class MainFormController {
         }
     }
 
-    //</editor-fold desc = "Update Method">
+    public void updateTextFieldParameter(){
+        theView.getTextFieldPortServer().setText(Integer.toString(server.getPort()));
+        theView.getTextFieldPortClient().setText(Integer.toString(client.getPort()));
+        theView.getTextFieldIp().setText(client.getAddress());
+        theView.getTextFieldIncidence().setText(Integer.toString(incidentThreshold));
+    }
 
+    //</editor-fold desc = "Update Method">
 
     //<editor-fold desc = "Class">
 
@@ -623,6 +678,7 @@ public class MainFormController {
                 updateTableChecks();
                 updateComboBoxDepartmentCheck();
                 updateComboBoxAvailableStaff();
+                updateTextFieldParameter();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -669,7 +725,7 @@ public class MainFormController {
                     String path = fileChooser.getSelectedFile().getAbsolutePath();
                     path = path +"/"+fileName+".csv";
                     company.exportCSV(path);
-                    JOptionPane.showMessageDialog(null,"List of employee successfully exported","Success",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"List of employees successfully exported","Success",JOptionPane.INFORMATION_MESSAGE);
                 }
             }catch (Exception e){
                 e.printStackTrace();
@@ -750,14 +806,47 @@ public class MainFormController {
                         || theView.getTextFieldPortServer().getText().equals("") || theView.getTextFieldPortServer().getText() == null) {
                     throw new Exception("Please enter valid Ip and ports");
                 } else {
-
-                    server.setPort(Integer.parseInt(theView.getTextFieldPortServer().getText()));
-                    client.setAddressPort(theView.getTextFieldIp().getText(),Integer.parseInt(theView.getTextFieldPortClient().getText()));
-
+                    String portServer = theView.getTextFieldPortServer().getText();
+                    String portClient = theView.getTextFieldPortClient().getText();
+                    String address = theView.getTextFieldIp().getText();
+                    Properties config = new Properties();
+                    config.loadFromXML(new FileInputStream("config/config.xml"));
+                    config.setProperty("Ip",address);
+                    config.setProperty("portServer",portServer);
+                    config.setProperty("portClient",portClient);
+                    server.setPort(Integer.parseInt(portServer));
+                    client.setAddressPort(address,Integer.parseInt(portClient));
+                    config.storeToXML(new FileOutputStream("config/config.xml"),null);
                 }
             }catch (Exception e){
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
+            }
+            updateTextFieldParameter();
+        }
+    }
+
+    private class ValidateButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            try {
+                if (theView.getTextFieldIncidence().getText().equals("") || theView.getTextFieldIncidence().getText() == null)
+                    throw new Exception("");
+                incidentThreshold = Integer.parseInt(theView.getTextFieldIncidence().getText());
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null,"Please enter a valid integer","Error",JOptionPane.INFORMATION_MESSAGE);
+            }
+            updateTextFieldParameter();
+        }
+    }
+
+    private class radioButtonChecksListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            try {
+                updateTableChecks();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

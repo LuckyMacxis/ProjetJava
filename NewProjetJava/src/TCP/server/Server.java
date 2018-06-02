@@ -4,6 +4,13 @@ import java.io.IOException;
 
 public class Server extends TCPServerBuilder implements Runnable {
 
+    /**
+     * The main method for threading.
+     */
+    public Server() throws IOException {
+        super();
+    }
+
     @Override
     public void run() {
         try {
@@ -14,7 +21,7 @@ public class Server extends TCPServerBuilder implements Runnable {
             while(true)
             {
                 try{
-                    ss.setSoTimeout(1500);
+                    //ss.setSoTimeout(1500);
                     s = ss.accept();
                     if(s!=null)
                     {
@@ -22,7 +29,7 @@ public class Server extends TCPServerBuilder implements Runnable {
                         new Thread(new ServerTh(s,"save/company.serial")).start();
                     }
                 }catch(IOException e){
-                    System.out.println("Serveur file :" + e.getMessage());
+                    System.out.println("Server file :" + e.getMessage());
                 }
             }
 

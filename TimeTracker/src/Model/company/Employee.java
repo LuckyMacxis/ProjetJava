@@ -111,16 +111,6 @@ public class Employee extends Person {
         if (this.getId() != check.getEmployee().getId())
             throw new Exception("this check isn't assigned to this employee");
 
-        // verify if the check isn't too old
-        if  (listCheck.size() > 0 && check.getCheck().getDate().isBefore(listCheck.get(listCheck.size()-1).getCheck().getDate())) {
-            throw new Exception("this check is too old");
-        }else{
-            if (listCheck.size() > 0 && check.getCheck().getDate().equals(listCheck.get(listCheck.size()-1).getCheck().getDate())){
-                if (check.getCheck().getTime().isBefore(listCheck.get(listCheck.size()-1).getCheck().getTime()))
-                    throw new Exception("this check is too old");
-            }
-        }
-
         // we look if the employee have already check today
         // if yes it's mean that it's a departure time
         if (listCheck.size() > 0 && listCheck.get(listCheck.size()-1).getCheck().getDate().equals(check.getCheck().getDate())){

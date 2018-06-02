@@ -7,6 +7,7 @@ import Model.company.Department;
 import Model.company.Employee;
 import Model.company.Manager;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,12 +29,20 @@ public class AddStaffController {
     private class ButtonOkListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
+            String mail;
+            if (theView.getTextFieldMail().getText().equals("") || theView.getTextFieldMail().getText() == null){
+                mail = theView.getTextFieldMail().getText();
+            }else{
+                mail = " ";
+            }
             if(theView.getManagerCheckBox().isSelected()){
                 try {
-                    manager = new Manager(theView.getTextField2().getText(),
-                            theView.getTextField1().getText(),
-                            new DateAndTime(theView.getTextField5().getText(),DateAndTime.TIME),
-                            new DateAndTime(theView.getTextField6().getText(), DateAndTime.TIME));
+
+                    manager = new Manager(theView.getTextFieldLastName().getText(),
+                            theView.getTextFieldFirstName().getText(),
+                            mail,
+                            new DateAndTime(theView.getTextFieldArriving().getText(),DateAndTime.TIME),
+                            new DateAndTime(theView.getTextFieldDeparture().getText(), DateAndTime.TIME));
                     company.addManager(manager);
                     if (!theView.getComboBox1().getSelectedItem().equals("None")){
                         for (Department d : company.getListDepartment()) {
@@ -43,14 +52,15 @@ public class AddStaffController {
                         }
                     }
                 }catch (Exception e){
-                    System.out.println(e);
+                    JOptionPane.showMessageDialog(null,"Please enter valid text.","Error",JOptionPane.INFORMATION_MESSAGE);
                 }
             }else{
                 try {
-                    employee = new Employee(theView.getTextField1().getText(),
-                            theView.getTextField1().getText(),
-                            new DateAndTime(theView.getTextField5().getText(),DateAndTime.TIME),
-                            new DateAndTime(theView.getTextField6().getText(), DateAndTime.TIME));
+                    employee = new Employee(theView.getTextFieldLastName().getText(),
+                            theView.getTextFieldFirstName().getText(),
+                            mail,
+                            new DateAndTime(theView.getTextFieldArriving().getText(),DateAndTime.TIME),
+                            new DateAndTime(theView.getTextFieldDeparture().getText(), DateAndTime.TIME));
                     company.addEmployee(employee);
                     if (!theView.getComboBox1().getSelectedItem().equals("None")){
                         for (Department d : company.getListDepartment()) {
@@ -60,7 +70,7 @@ public class AddStaffController {
                         }
                     }
                 }catch (Exception e){
-                    System.out.println(e);
+                    JOptionPane.showMessageDialog(null,"Please enter valid text.","Error",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
             theView.dispose();

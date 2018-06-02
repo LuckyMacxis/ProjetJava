@@ -29,7 +29,7 @@ public class DateAndTime implements Serializable{
      */
     public DateAndTime(LocalDate date, LocalTime time) throws Exception {
         this.date = date;
-        this.time = time;
+        this.time = LocalTime.of(time.getHour(),time.getMinute());
         this.roundTime();
     }
 

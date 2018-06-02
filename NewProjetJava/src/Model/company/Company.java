@@ -396,9 +396,9 @@ public class Company implements Serializable {
         for (Department d : listDepartment) {
             if (d.getName().equals(department.getName())) {
                 if (department.getListEmployees().size() != 0)
-                    throw new Exception("To remove a department he must be empty");
+                    throw new Exception("To remove a department, only its chief must be inside");
                 if (department.getListManagers().size() > 1)
-                    throw new Exception("To remove a department he must be empty");
+                    throw new Exception("To remove a department, only its chief must be inside");
                 listDepartment.remove(department);
                 return;
             }

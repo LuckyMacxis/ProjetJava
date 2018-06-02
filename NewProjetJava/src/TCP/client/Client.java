@@ -14,7 +14,7 @@ public class Client extends TCPClientBuilder implements Runnable {
     private String file;
     private Company company;
     private boolean status = false;
-    public Client(String f,Company company) {
+    public Client(String f,Company company) throws IOException {
         super();
         file = f;
         this.company = company;

@@ -10,7 +10,7 @@ public class Server extends TCPServerBuilder implements Runnable {
 
     volatile ArrayList<Check> listCheck;
 
-    public Server(ArrayList<Check> listCheck) {
+    public Server(ArrayList<Check> listCheck) throws IOException {
         super();
         this.listCheck = listCheck;
     }
@@ -18,15 +18,18 @@ public class Server extends TCPServerBuilder implements Runnable {
     @Override
     public void run() {
 
-
-            System.out.println("\n Server online");
-            //ssInfo("The server sets the passive socket", ss);
+        try {
+            setSocket();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
             while(true)
             {
                 try{
                     TimeUnit.SECONDS.sleep(1);
-                    setSocket();
+
                     if (listCheck.size() > 0){
+                        setSocket();
                         ss.setSoTimeout(500);
                         s = ss.accept();
                         System.out.println("send a check");
@@ -34,9 +37,7 @@ public class Server extends TCPServerBuilder implements Runnable {
                         listCheck.remove(0);
                         new Thread(new ServerTh(s,"tmp/check.serial")).start();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                } catch (Exception e) {}
 
             }
     }

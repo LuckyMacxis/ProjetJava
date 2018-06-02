@@ -1,9 +1,12 @@
 package TCP.server;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Properties;
 
 public class TCPServerBuilder extends Thread{
     protected volatile   ServerSocket ss;
@@ -12,7 +15,10 @@ public class TCPServerBuilder extends Thread{
     private volatile int port = 8081;
 
     /** The main method for threading. */
-    TCPServerBuilder() {
+    TCPServerBuilder() throws IOException {
+        Properties config = new Properties();
+        config.loadFromXML(new FileInputStream("config/config.xml"));
+        port = Integer.parseInt(config.getProperty("portServer"));
     }
 
     public void setSocket() throws IOException{

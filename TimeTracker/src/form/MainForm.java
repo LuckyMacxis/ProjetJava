@@ -17,12 +17,27 @@ public class MainForm extends JFrame {
     private JButton checkInOutButton;
     private JLabel timeLabel;
     private JLabel roundedTimeLabel;
-    private JButton optionButton;
     private JButton syncButton;
     private JComboBox comboBoxEmployee;
+    private JTextField textFieldIp;
+    private JTextField textFieldPortClient;
+    private JTextField textFieldPortServer;
+    private JButton okButton;
 
     public JComboBox getComboBoxEmployee() {
         return comboBoxEmployee;
+    }
+
+    public JTextField getTextFieldIp() {
+        return textFieldIp;
+    }
+
+    public JTextField getTextFieldPortClient() {
+        return textFieldPortClient;
+    }
+
+    public JTextField getTextFieldPortServer() {
+        return textFieldPortServer;
     }
 
     LocalDateTime dateTime;
@@ -30,7 +45,7 @@ public class MainForm extends JFrame {
     public MainForm(){
         setContentPane(panel1);
         setTitle("Time Tracker Emulator");
-        setSize(400,250);
+        setSize(510,230);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         Timer timer = new Timer();
@@ -52,12 +67,11 @@ public class MainForm extends JFrame {
         checkInOutButton.addActionListener(actionListener);
     }
 
-    public void buttonOptionListener(ActionListener actionListener){
-        optionButton.addActionListener(actionListener);
-    }
-
     public void buttonSyncListener(ActionListener actionListener){
         syncButton.addActionListener(actionListener);
     }
 
+    public void okButtonListener(ActionListener actionListener){
+        okButton.addActionListener(actionListener);
+    }
 }

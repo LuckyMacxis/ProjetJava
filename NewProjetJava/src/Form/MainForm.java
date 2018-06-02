@@ -4,7 +4,6 @@ import javax.swing.*;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
-import java.beans.VetoableChangeListener;
 
 public class MainForm extends JFrame{
 
@@ -38,10 +37,26 @@ public class MainForm extends JFrame{
     private JButton addStaffButton;
     private JButton okButton;
     private JTextField textFieldPortClient;
+    private JTextField textFieldIncidence;
+    private JButton validateButton;
+    private JRadioButton allChecksRadioButton;
+    private JRadioButton checksOfTheDayRadioButton;
 
 
     //<editor-fold desc = "Get and Set">
 
+
+    public JRadioButton getAllChecksRadioButton() {
+        return allChecksRadioButton;
+    }
+
+    public JRadioButton getChecksOfTheDayRadioButton() {
+        return checksOfTheDayRadioButton;
+    }
+
+    public JTextField getTextFieldIncidence() {
+        return textFieldIncidence;
+    }
 
     public JTextField getTextFieldIp() {
         return textFieldIp;
@@ -198,6 +213,16 @@ public class MainForm extends JFrame{
     public void okButtonListener(ActionListener actionListener){
         okButton.addActionListener(actionListener);
     }
+
+    public void validateButtonListener(ActionListener actionListener){
+        validateButton.addActionListener(actionListener);
+    }
+
+    public void radioButtonChecksListener(ActionListener actionListener){
+        allChecksRadioButton.addActionListener(actionListener);
+        checksOfTheDayRadioButton.addActionListener(actionListener);
+    }
+
     //</editor-fold>
 
 

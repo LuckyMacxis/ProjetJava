@@ -1,12 +1,9 @@
 package Form;
 
 import Model.company.Department;
-import Model.company.Employee;
-import Model.company.Manager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -16,13 +13,12 @@ public class FormAddStaff extends JDialog {
     private JButton cancelButton;
     private JButton okButton;
     private JCheckBox managerCheckBox;
-    private JTextField textField1;
+    private JTextField textFieldFirstName;
     private JLabel nameLabel;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JTextField textField6;
+    private JTextField textFieldLastName;
+    private JTextField textFieldMail;
+    private JTextField textFieldArriving;
+    private JTextField textFieldDeparture;
     private JComboBox comboBox1;
     private JPanel panel1;
 
@@ -32,41 +28,28 @@ public class FormAddStaff extends JDialog {
 
     //<editor-fold desc="Get and Set">
 
-
-    public JButton getCancelButton() {
-        return cancelButton;
-    }
-
-    public JButton getOkButton() {
-        return okButton;
-    }
-
     public JCheckBox getManagerCheckBox() {
         return managerCheckBox;
     }
 
-    public JTextField getTextField1() {
-        return textField1;
+    public JTextField getTextFieldFirstName() {
+        return textFieldFirstName;
     }
 
-    public JTextField getTextField2() {
-        return textField2;
+    public JTextField getTextFieldLastName() {
+        return textFieldLastName;
     }
 
-    public JTextField getTextField3() {
-        return textField3;
+    public JTextField getTextFieldMail() {
+        return textFieldMail;
     }
 
-    public JTextField getTextField4() {
-        return textField4;
+    public JTextField getTextFieldArriving() {
+        return textFieldArriving;
     }
 
-    public JTextField getTextField5() {
-        return textField5;
-    }
-
-    public JTextField getTextField6() {
-        return textField6;
+    public JTextField getTextFieldDeparture() {
+        return textFieldDeparture;
     }
 
     public JComboBox getComboBox1() {
