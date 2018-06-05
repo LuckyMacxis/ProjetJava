@@ -64,6 +64,7 @@ public class MainFormController {
         theView.okButtonListener(new OkButtonListener());
         theView.validateButtonListener(new ValidateButtonListener());
         theView.radioButtonChecksListener(new radioButtonChecksListener());
+        theView.editStaffButtonListener(new EditStaffButtonListener());
 
         theView.getTableStaff().setRowSelectionAllowed(true);
         theView.getTableStaff().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -107,8 +108,8 @@ public class MainFormController {
         MyModelTable modelTableStaff = new MyModelTable();
 
         modelTableStaff.addColumn("Id");
-        modelTableStaff.addColumn("First name");
-        modelTableStaff.addColumn("Surname");
+        modelTableStaff.addColumn("Name");
+        modelTableStaff.addColumn("Mail");
         modelTableStaff.addColumn("Function");
         modelTableStaff.addColumn("Arriving Time");
         modelTableStaff.addColumn("Departure Time");
@@ -122,8 +123,8 @@ public class MainFormController {
                                 || m.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
                             modelTableStaff.addRow(new Object[]{
                                     m.getId(),
-                                    m.getFirstname(),
-                                    m.getLastname(),
+                                    m.getFirstname()+" "+m.getLastname(),
+                                    m.getMail(),
                                     "Chief",
                                     m.getArrivingTime().toString(),
                                     m.getDepartureTime().toString(),
@@ -135,8 +136,8 @@ public class MainFormController {
                                 || m.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
                             modelTableStaff.addRow(new Object[]{
                                     m.getId(),
-                                    m.getFirstname(),
-                                    m.getLastname(),
+                                    m.getFirstname()+" "+m.getLastname(),
+                                    m.getMail(),
                                     "Manager",
                                     m.getArrivingTime().toString(),
                                     m.getDepartureTime().toString(),
@@ -152,8 +153,8 @@ public class MainFormController {
                             || e.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
                         modelTableStaff.addRow(new Object[]{
                                 e.getId(),
-                                e.getFirstname(),
-                                e.getLastname(),
+                                e.getFirstname()+" "+e.getLastname(),
+                                e.getMail(),
                                 "Employee",
                                 e.getArrivingTime().toString(),
                                 e.getDepartureTime().toString(),
@@ -173,8 +174,8 @@ public class MainFormController {
                         if (!company.isInADepartment(m))
                             modelTableStaff.addRow(new Object[]{
                                     m.getId(),
-                                    m.getFirstname(),
-                                    m.getLastname(),
+                                    m.getFirstname()+" "+m.getLastname(),
+                                    m.getMail(),
                                     "Manager",
                                     m.getArrivingTime().toString(),
                                     m.getDepartureTime().toString(),
@@ -191,8 +192,8 @@ public class MainFormController {
                                 || e.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
                             modelTableStaff.addRow(new Object[]{
                                     e.getId(),
-                                    e.getFirstname(),
-                                    e.getLastname(),
+                                    e.getFirstname()+" "+e.getLastname(),
+                                    e.getMail(),
                                     "Employee",
                                     e.getArrivingTime().toString(),
                                     e.getDepartureTime().toString(),
@@ -213,8 +214,8 @@ public class MainFormController {
                                 || m.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
                             modelTableStaff.addRow(new Object[]{
                                     m.getId(),
-                                    m.getFirstname(),
-                                    m.getLastname(),
+                                    m.getFirstname()+" "+m.getLastname(),
+                                    m.getMail(),
                                     "Chief",
                                     m.getArrivingTime().toString(),
                                     m.getDepartureTime().toString(),
@@ -226,8 +227,8 @@ public class MainFormController {
                                 || m.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
                             modelTableStaff.addRow(new Object[]{
                                     m.getId(),
-                                    m.getFirstname(),
-                                    m.getLastname(),
+                                    m.getFirstname()+" "+m.getLastname(),
+                                    m.getMail(),
                                     "Manager",
                                     m.getArrivingTime().toString(),
                                     m.getDepartureTime().toString(),
@@ -243,8 +244,8 @@ public class MainFormController {
                             || e.getLastname().contains(theView.getTextFieldSearchStaff().getText())) {
                         modelTableStaff.addRow(new Object[]{
                                 e.getId(),
-                                e.getFirstname(),
-                                e.getLastname(),
+                                e.getFirstname()+" "+e.getLastname(),
+                                e.getMail(),
                                 "Employee",
                                 e.getArrivingTime().toString(),
                                 e.getDepartureTime().toString(),
@@ -848,6 +849,32 @@ public class MainFormController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private class EditStaffButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            try {
+                EditForm editForm = new EditForm();
+                int nbRow = theView.getTableStaff().getSelectedRow();
+                if (nbRow == -1)
+                    throw new Exception("Please select an employee");
+                int id =  Integer.parseInt(theView.getTableStaff().getValueAt(nbRow,0).toString());
+                Employee employee;
+                if (theView.getTableStaff().getValueAt(nbRow,3).toString().equals("Employee")){
+                    employee = company.searchEmployeeWithId(id);
+                }else{
+                    employee = company.searchManagerWithId(id);
+                }
+                EditStaffController editStaffController = new EditStaffController(editForm,employee);
+
+                editForm.setVisible(true);
+                updateTableStaff();
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
+            }
+
         }
     }
 

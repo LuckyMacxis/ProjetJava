@@ -64,7 +64,7 @@ public class FormAddStaff extends JDialog {
 
     public FormAddStaff(Frame frame, String string, ArrayList<Department> list){
         super(frame, string);
-        setTitle("Add Department");
+        setTitle("Add staff");
         setContentPane(panel1);
         setAlwaysOnTop(true);
         setModalityType(ModalityType.APPLICATION_MODAL);

@@ -52,10 +52,16 @@
                       <text value="&lt;html&gt;Set as&lt;br&gt;&lt;/br&gt;  chief&lt;/html&gt;"/>
                     </properties>
                   </component>
+                  <component id="fcae4" class="javax.swing.JButton" binding="editstaffButton" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <text value="&lt;html&gt;Edit&lt;br&gt;&lt;/br&gt;staff&lt;/html&gt;"/>
+                    </properties>
+                  </component>
                   <component id="10fe7" class="javax.swing.JButton" binding="addStaffButton" default-binding="true">
                     <constraints/>
                     <properties>
-                      <text value="&lt;html&gt;Add&lt;br&gt;&lt;/br&gt; Staff&lt;/html&gt;"/>
+                      <text value="&lt;html&gt;Add&lt;br&gt;&lt;/br&gt; staff&lt;/html&gt;"/>
                     </properties>
                   </component>
                 </children>

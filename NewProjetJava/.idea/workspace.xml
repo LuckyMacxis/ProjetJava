@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="NewProjetJava:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bb45da90-8e42-4626-b7ed-750de7d75166" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -11,69 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/MainForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainFormController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MainFormController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="799" column="61" selection-start-line="799" selection-start-column="61" selection-end-line="799" selection-end-column="61" />
-              <folding>
-                <element signature="method#MainFormController#0;class#MainFormController#0" />
-                <element signature="e#3245#3283#0" />
-                <element signature="method#actionPerformed#0;class#ButtonDeleteFromDepartmentListener#0;class#MainFormController#0" />
-                <element signature="method#actionPerformed#0;class#ButtonDeleteDepartmentListener#0;class#MainFormController#0" />
-                <element signature="method#actionPerformed#0;class#RadioButtonListener#0;class#MainFormController#0" />
-                <element signature="method#actionPerformed#0;class#ButtonSetAsChiefListener#0;class#MainFormController#0" />
-                <element signature="method#actionPerformed#0;class#ButtonAddDepartmentListener#0;class#MainFormController#0" />
-                <element signature="class#TextFieldSearchDepartmentListener#0;class#MainFormController#0" />
-                <element signature="method#actionPerformed#0;class#ComboBoxDepartmentCheckListener#0;class#MainFormController#0" />
-                <element signature="class#OkButtonListener#0;class#MainFormController#0" />
-                <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TCPServerBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TCP/server/TCPServerBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
-              <folding>
-                <element signature="method#setPort#0;class#TCPServerBuilder#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TCP/server/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,6 +33,7 @@
       <find>searchE</find>
       <find>list of</find>
       <find>okButt</find>
+      <find>Valu</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -111,22 +55,25 @@
         <option value="$PROJECT_DIR$/src/Controller/ChecksHistoryController.java" />
         <option value="$PROJECT_DIR$/src/Tester/Main_STUB.java" />
         <option value="$PROJECT_DIR$/src/TCP/server/ServerTh.java" />
-        <option value="$PROJECT_DIR$/src/Model/company/Person.java" />
         <option value="$PROJECT_DIR$/src/Model/company/Manager.java" />
         <option value="$PROJECT_DIR$/src/Tester/Main.java" />
-        <option value="$PROJECT_DIR$/src/Form/FormAddStaff.java" />
         <option value="$PROJECT_DIR$/src/Form/FormAddStaff.form" />
-        <option value="$PROJECT_DIR$/src/Model/company/Employee.java" />
         <option value="$PROJECT_DIR$/src/Controller/AddStaffController.java" />
-        <option value="$PROJECT_DIR$/src/Form/MainForm.form" />
-        <option value="$PROJECT_DIR$/src/Form/MainForm.java" />
         <option value="$PROJECT_DIR$/src/Model/company/Company.java" />
         <option value="$PROJECT_DIR$/src/TCP/client/Client.java" />
         <option value="$PROJECT_DIR$/config/config.xml" />
         <option value="$PROJECT_DIR$/src/TCP/server/TCPServerBuilder.java" />
         <option value="$PROJECT_DIR$/src/TCP/server/Server.java" />
         <option value="$PROJECT_DIR$/src/TCP/client/TCPClientBuilder.java" />
+        <option value="$PROJECT_DIR$/src/Form/MainForm.form" />
+        <option value="$PROJECT_DIR$/src/Form/MainForm.java" />
+        <option value="$PROJECT_DIR$/src/Form/EditForm.form" />
+        <option value="$PROJECT_DIR$/src/Model/company/Person.java" />
+        <option value="$PROJECT_DIR$/src/Model/company/Employee.java" />
+        <option value="$PROJECT_DIR$/src/Form/EditForm.java" />
+        <option value="$PROJECT_DIR$/src/Controller/EditStaffController.java" />
         <option value="$PROJECT_DIR$/src/Controller/MainFormController.java" />
+        <option value="$PROJECT_DIR$/src/Form/FormAddStaff.java" />
       </list>
     </option>
   </component>
@@ -160,42 +107,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="TCP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="TCP" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -207,14 +118,78 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+              <item name="EditForm" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+              <item name="FormAddStaff" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+              <item name="MainForm" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="284" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TimeTracker" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -344,28 +319,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4919473" weight="0.32750398" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49121523" weight="0.32750398" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.32210836" side_tool="true" visible="true" weight="0.34658188" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3235725" side_tool="true" visible="true" weight="0.34658188" />
       <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.67642754" weight="0.34658188" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6778917" weight="0.34658188" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2137628" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2137628" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4978038" weight="0.3990461" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -379,12 +353,12 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22065727" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -394,7 +368,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.3286385" />
@@ -411,28 +385,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Form/FormCheckHistory.java" />
-    <entry file="file://$PROJECT_DIR$/src/Form/FormCheckHistory.form" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/MainFormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="118" column="4" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="4" />
-          <folding>
-            <element signature="method#MainFormController#0;class#MainFormController#0" />
-            <element signature="e#3245#3283#0" />
-            <element signature="method#actionPerformed#0;class#ButtonDeleteFromDepartmentListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ButtonDeleteDepartmentListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#RadioButtonListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ButtonSetAsChiefListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ButtonAddDepartmentListener#0;class#MainFormController#0" />
-            <element signature="class#TextFieldSearchDepartmentListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ComboBoxDepartmentCheckListener#0;class#MainFormController#0" />
-            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AddStaffController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -499,8 +451,16 @@
         <state relative-caret-position="2091">
           <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
           <folding>
-            <element signature="method#MainFormController#0;class#MainFormController#0" />
-            <element signature="e#3245#3283#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="class#MyModelTable#0;class#MainFormController#0" />
+            <element signature="method#updateComboBoxChief#0;class#MainFormController#0" />
+            <element signature="method#updateTableDepartment#0;class#MainFormController#0" />
+            <element signature="method#updateComboBoxDepartmentCheck#0;class#MainFormController#0" />
+            <element signature="method#updateComboBoxEmployeeCheck#0;class#MainFormController#0" />
+            <element signature="method#updateTableChecks#0;class#MainFormController#0" />
+            <element signature="method#updateComboBoxAvailableStaff#0;class#MainFormController#0" />
+            <element signature="method#updateTextFieldParameter#0;class#MainFormController#0" />
+            <element signature="e#23038#23068#0" />
             <element signature="method#actionPerformed#0;class#ButtonDeleteFromDepartmentListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ButtonDeleteDepartmentListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#RadioButtonListener#0;class#MainFormController#0" />
@@ -508,8 +468,12 @@
             <element signature="method#actionPerformed#0;class#ButtonAddDepartmentListener#0;class#MainFormController#0" />
             <element signature="class#TextFieldSearchDepartmentListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ComboBoxDepartmentCheckListener#0;class#MainFormController#0" />
+            <element signature="class#AssignButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#AssignButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#AddStaffButtonListener#0;class#MainFormController#0" />
             <element signature="class#OkButtonListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#EditStaffButtonListener#0;class#MainFormController#0" />
           </folding>
         </state>
       </provider>
@@ -607,53 +571,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/FormAddStaff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/FormAddStaff.form">
       <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/company/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/company/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="47" column="138" selection-start-line="47" selection-start-column="138" selection-end-line="47" selection-end-column="138" />
-          <folding>
-            <element signature="method#Employee#2;class#Employee#0" />
-            <element signature="e#1647#1683#0" />
-            <element signature="docComment;method#addCheck#0;class#Employee#0" />
-            <element signature="method#addCheck#0;class#Employee#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AddStaffController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="75" column="30" lean-forward="true" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="30" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/FormAddDepartment.java" />
     <entry file="file://$PROJECT_DIR$/src/Controller/AddDepartmentController.java" />
     <entry file="file://$PROJECT_DIR$/src/Form/FormAddDepartment.form" />
-    <entry file="file://$PROJECT_DIR$/src/Form/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/company/Company.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -661,17 +584,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/MainForm.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TCP/client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding>
-            <element signature="method#run#0;class#Client#0" />
-            <element signature="method#connection#0;class#Client#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -689,23 +605,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MainFormController.java">
+    <entry file="file://$PROJECT_DIR$/config/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="799" column="61" selection-start-line="799" selection-start-column="61" selection-end-line="799" selection-end-column="61" />
-          <folding>
-            <element signature="method#MainFormController#0;class#MainFormController#0" />
-            <element signature="e#3245#3283#0" />
-            <element signature="method#actionPerformed#0;class#ButtonDeleteFromDepartmentListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ButtonDeleteDepartmentListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#RadioButtonListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ButtonSetAsChiefListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ButtonAddDepartmentListener#0;class#MainFormController#0" />
-            <element signature="class#TextFieldSearchDepartmentListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ComboBoxDepartmentCheckListener#0;class#MainFormController#0" />
-            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -719,10 +622,134 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.xml">
+    <entry file="file://$PROJECT_DIR$/src/Model/company/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="153">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding>
+            <element signature="e#1102#1136#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/company/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="135" column="129" selection-start-line="135" selection-start-column="129" selection-end-line="135" selection-end-column="129" />
+          <folding>
+            <element signature="method#Employee#1;class#Employee#0" />
+            <element signature="method#Employee#2;class#Employee#0" />
+            <element signature="docComment;method#addCheck#0;class#Employee#0" />
+            <element signature="method#addCheck#0;class#Employee#0" />
+            <element signature="method#editEmployee#0;class#Employee#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/EditForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#EditForm#0;class#EditForm#0" />
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#949#950#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/EditForm.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/MainForm.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/EditStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="method#EditStaffController#0;class#EditStaffController#0" />
+            <element signature="method#updateTextFied#0;class#EditStaffController#0" />
+            <element signature="class#OkButtonListener#0;class#EditStaffController#0" />
+            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#EditStaffController#0" />
+            <element signature="class#CancelButtonListener#0;class#EditStaffController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/FormAddStaff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="64" column="79" selection-start-line="64" selection-start-column="79" selection-end-line="64" selection-end-column="79" />
+          <folding>
+            <element signature="method#FormAddStaff#0;class#FormAddStaff#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
+          <folding>
+            <element signature="method#AddStaffController#0;class#AddStaffController#0" />
+            <element signature="class#ButtonOkListener#0;class#AddStaffController#0" />
+            <element signature="method#actionPerformed#0;class#ButtonOkListener#0;class#AddStaffController#0" />
+            <element signature="class#ButtonCancelListener#0;class#AddStaffController#0" />
+            <element signature="method#actionPerformed#0;class#ButtonCancelListener#0;class#AddStaffController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MainFormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="306" column="44" lean-forward="true" selection-start-line="306" selection-start-column="44" selection-end-line="306" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#MyModelTable#0;class#MainFormController#0" />
+            <element signature="method#updateComboBoxChief#0;class#MainFormController#0" />
+            <element signature="method#updateTableDepartment#0;class#MainFormController#0" />
+            <element signature="method#updateComboBoxDepartmentCheck#0;class#MainFormController#0" />
+            <element signature="method#updateComboBoxEmployeeCheck#0;class#MainFormController#0" />
+            <element signature="method#updateTableChecks#0;class#MainFormController#0" />
+            <element signature="method#updateComboBoxAvailableStaff#0;class#MainFormController#0" />
+            <element signature="method#updateTextFieldParameter#0;class#MainFormController#0" />
+            <element signature="e#23038#23068#0" />
+            <element signature="method#actionPerformed#0;class#ButtonDeleteFromDepartmentListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#ButtonDeleteDepartmentListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#RadioButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#ButtonSetAsChiefListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#ButtonAddDepartmentListener#0;class#MainFormController#0" />
+            <element signature="class#TextFieldSearchDepartmentListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#ComboBoxDepartmentCheckListener#0;class#MainFormController#0" />
+            <element signature="class#AssignButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#AssignButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#AddStaffButtonListener#0;class#MainFormController#0" />
+            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#EditStaffButtonListener#0;class#MainFormController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/MainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="228" column="5" lean-forward="true" selection-start-line="228" selection-start-column="5" selection-end-line="228" selection-end-column="5" />
+          <folding>
+            <element signature="e#6837#6969#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -732,10 +759,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>NewProjetJava:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

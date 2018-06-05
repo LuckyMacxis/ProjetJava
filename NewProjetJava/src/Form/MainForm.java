@@ -41,6 +41,7 @@ public class MainForm extends JFrame{
     private JButton validateButton;
     private JRadioButton allChecksRadioButton;
     private JRadioButton checksOfTheDayRadioButton;
+    private JButton editstaffButton;
 
 
     //<editor-fold desc = "Get and Set">
@@ -221,6 +222,10 @@ public class MainForm extends JFrame{
     public void radioButtonChecksListener(ActionListener actionListener){
         allChecksRadioButton.addActionListener(actionListener);
         checksOfTheDayRadioButton.addActionListener(actionListener);
+    }
+
+    public void editStaffButtonListener(ActionListener actionListener){
+        editstaffButton.addActionListener(actionListener);
     }
 
     //</editor-fold>

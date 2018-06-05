@@ -3,6 +3,7 @@ package Model.company;
 import Model.Time.Check;
 import Model.Time.DateAndTime;
 
+import java.sql.Time;
 import java.util.ArrayList;
 
 public class Employee extends Person {
@@ -130,6 +131,30 @@ public class Employee extends Person {
                     - (check.getCheck().getTime().getHour()*60 + check.getCheck().getTime().getMinute());
         }
         listCheck.add(check);
+    }
+
+    public void editEmployee(String lastName, String firstName, String mail, String arriving, String departure) throws Exception {
+        if (lastName.equals("") || lastName == null)
+            throw new Exception("The last name of an employee can't be empty");
+
+        if (firstName.equals("") || firstName== null)
+            throw new Exception("The first name of an employee can't be empty");
+
+        if (arriving.equals("") || arriving == null)
+            throw new Exception("The arriving time of an employee can't be empty");
+
+        if (departure.equals("") || departure == null)
+            throw new Exception("The departure time of an employee can't be empty");
+
+        DateAndTime arrivingTime = new DateAndTime(arriving,DateAndTime.TIME);
+        DateAndTime departureTime = new DateAndTime(departure,DateAndTime.TIME);
+
+        setArrivingTime(arrivingTime);
+        setDepartureTime(departureTime);
+        setFirstname(firstName);
+        setLastname(lastName);
+        setMail(mail);
+
     }
 
     //</editor-fold>

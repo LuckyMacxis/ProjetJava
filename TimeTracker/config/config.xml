@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <entry key="Ip">127.0.0.7</entry>
-    <entry key="portServer">8088</entry>
-    <entry key="portClient">8089</entry>
+<entry key="portClient">8081</entry>
+<entry key="Ip">127.0.0.7</entry>
+<entry key="portServer">8080</entry>
 </properties>
