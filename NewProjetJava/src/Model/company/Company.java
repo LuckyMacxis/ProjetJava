@@ -489,43 +489,25 @@ public class Company implements Serializable {
 
     /**
      * Import a list of employees / managers to the company from a csv file.
-     * if in the list of employee some of them has Id which are already used in the company, they wont be imported.
      * the id of imported employees will be recalculate
      * @param file String, the path to the file to import
-     * @return the number of employee which haven't been successfully imported
      * @throws Exception if the file does't exist, if the file can't be read, or if the value in the csv file aren't in a good format
      */
-    public int importCSV(String file) throws Exception {
-        int counter = 0;
+    public void importCSV(String file) throws Exception {
         BufferedReader fileReader = new BufferedReader(new FileReader(file));
         String line = "";
         fileReader.readLine();
-        boolean exist = false;
-        while((line = fileReader.readLine()) != null){
+        while((line = fileReader.readLine()) != null) {
             String[] tab = line.split(",");
-            try {
-                searchEmployeeWithId(Integer.parseInt(tab[0]));
-                exist = true;
-            } catch (Exception e) {}
-
-            try {
-                searchManagerWithId(Integer.parseInt(tab[0]));
-                exist = true;
-            } catch (Exception e) {}
-
-            if (!exist){
-                if (tab[6].equals("manager")){
-                    Manager m = new Manager(tab[1],tab[2],tab[3],new DateAndTime(tab[4],DateAndTime.TIME),new DateAndTime(tab[5],DateAndTime.TIME));
-                    addManager(m);
-                }
-                if (tab[6].equals("employee")){
-                    Employee e = new Employee(tab[1],tab[2],tab[3],new DateAndTime(tab[4],DateAndTime.TIME),new DateAndTime(tab[5],DateAndTime.TIME));
-                    addEmployee(e);
-                }
-            }else{counter++;}
+            if (tab[6].equals("manager")) {
+                Manager m = new Manager(tab[1], tab[2], tab[3], new DateAndTime(tab[4], DateAndTime.TIME), new DateAndTime(tab[5], DateAndTime.TIME));
+                addManager(m);
+            }
+            if (tab[6].equals("employee")) {
+                Employee e = new Employee(tab[1], tab[2], tab[3], new DateAndTime(tab[4], DateAndTime.TIME), new DateAndTime(tab[5], DateAndTime.TIME));
+                addEmployee(e);
+            }
         }
-        return counter;
-
     }
 
     /**

@@ -16,7 +16,126 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MainFormController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/MainFormController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="748" column="65" selection-start-line="748" selection-start-column="65" selection-end-line="748" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#MyModelTable#0;class#MainFormController#0" />
+                <element signature="class#MyModelTable#0;class#MainFormController#0" />
+                <element signature="e#970#971#0" expanded="true" />
+                <element signature="e#1006#1007#0" expanded="true" />
+                <element signature="docComment;method#MainFormController#0;class#MainFormController#0" />
+                <element signature="method#MainFormController#0;class#MainFormController#0" />
+                <element signature="e#3598#3636#0" />
+                <element signature="docComment;method#updateComboBoxDepartment#0;class#MainFormController#0" />
+                <element signature="method#updateComboBoxDepartment#0;class#MainFormController#0" />
+                <element signature="docComment;method#updateTableStaff#0;class#MainFormController#0" />
+                <element signature="method#updateTableStaff#0;class#MainFormController#0" />
+                <element signature="docComment;method#updateComboBoxChief#0;class#MainFormController#0" />
+                <element signature="method#updateComboBoxChief#0;class#MainFormController#0" />
+                <element signature="docComment;method#updateTableDepartment#0;class#MainFormController#0" />
+                <element signature="method#updateTableDepartment#0;class#MainFormController#0" />
+                <element signature="docComment;method#updateComboBoxDepartmentCheck#0;class#MainFormController#0" />
+                <element signature="method#updateComboBoxDepartmentCheck#0;class#MainFormController#0" />
+                <element signature="docComment;method#updateComboBoxEmployeeCheck#0;class#MainFormController#0" />
+                <element signature="method#updateComboBoxEmployeeCheck#0;class#MainFormController#0" />
+                <element signature="docComment;method#updateTableChecks#0;class#MainFormController#0" />
+                <element signature="method#updateTableChecks#0;class#MainFormController#0" />
+                <element signature="docComment;method#updateComboBoxAvailableStaff#0;class#MainFormController#0" />
+                <element signature="method#updateComboBoxAvailableStaff#0;class#MainFormController#0" />
+                <element signature="docComment;method#updateTextFieldParameter#0;class#MainFormController#0" />
+                <element signature="method#updateTextFieldParameter#0;class#MainFormController#0" />
+                <element signature="class#ComboBoxDepartmentListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ComboBoxDepartmentListener#0;class#MainFormController#0" />
+                <element signature="class#ButtonDeleteFromCompanyListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ButtonDeleteFromCompanyListener#0;class#MainFormController#0" />
+                <element signature="class#ButtonDeleteFromDepartmentListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ButtonDeleteFromDepartmentListener#0;class#MainFormController#0" />
+                <element signature="class#ButtonDeleteDepartmentListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ButtonDeleteDepartmentListener#0;class#MainFormController#0" />
+                <element signature="class#RadioButtonListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#RadioButtonListener#0;class#MainFormController#0" />
+                <element signature="class#ButtonSetAsChiefListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ButtonSetAsChiefListener#0;class#MainFormController#0" />
+                <element signature="method#actionPerformed#0;class#ButtonSetAsChiefListener#0;class#MainFormController#0" />
+                <element signature="class#ButtonAddDepartmentListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ButtonAddDepartmentListener#0;class#MainFormController#0" />
+                <element signature="class#TextFieldSearchDepartmentListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#keyReleased#0;class#TextFieldSearchDepartmentListener#0;class#MainFormController#0" />
+                <element signature="class#ComboBoxDepartmentCheckListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ComboBoxDepartmentCheckListener#0;class#MainFormController#0" />
+                <element signature="class#ComboBoxEmployeeCheckListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ComboBoxEmployeeCheckListener#0;class#MainFormController#0" />
+                <element signature="class#tabbedPaneListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#stateChanged#0;class#tabbedPaneListener#0;class#MainFormController#0" />
+                <element signature="class#ImportButtonListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ImportButtonListener#0;class#MainFormController#0" />
+                <element signature="method#actionPerformed#0;class#ImportButtonListener#0;class#MainFormController#0" />
+                <element signature="class#ExportButtonListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ExportButtonListener#0;class#MainFormController#0" />
+                <element signature="class#TextFieldSearchStaffListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#keyReleased#0;class#TextFieldSearchStaffListener#0;class#MainFormController#0" />
+                <element signature="class#AssignButtonListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#AssignButtonListener#0;class#MainFormController#0" />
+                <element signature="class#AddStaffButtonListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#AddStaffButtonListener#0;class#MainFormController#0" />
+                <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+                <element signature="class#ValidateButtonListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#ValidateButtonListener#0;class#MainFormController#0" />
+                <element signature="class#radioButtonChecksListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#radioButtonChecksListener#0;class#MainFormController#0" />
+                <element signature="class#EditStaffButtonListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#actionPerformed#0;class#EditStaffButtonListener#0;class#MainFormController#0" />
+                <element signature="method#actionPerformed#0;class#EditStaffButtonListener#0;class#MainFormController#0" />
+                <element signature="class#ClosingListener#0;class#MainFormController#0" />
+                <element signature="docComment;method#windowClosing#0;class#ClosingListener#0;class#MainFormController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Tester/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Company.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/company/Company.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="493" selection-start-line="493" selection-end-line="493" />
+              <folding>
+                <element signature="e#572#608#0" />
+                <element signature="e#614#740#0" />
+                <element signature="e#913#962#0" />
+                <element signature="e#1039#1075#0" />
+                <element signature="e#1657#1835#0" />
+                <element signature="e#1657#2176#0" />
+                <element signature="e#2182#2390#0" />
+                <element signature="e#2182#2697#0" />
+                <element signature="e#2703#2913#0" />
+                <element signature="e#2703#3367#0" />
+                <element signature="e#3373#3590#0" />
+                <element signature="e#3373#3976#0" />
+                <element signature="e#3982#4272#0" />
+                <element signature="e#3982#4756#0" />
+                <element signature="e#18269#18478#0" />
+                <element signature="e#18269#19308#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,7 +150,7 @@
       <find>listCheck.add</find>
       <find>updateComboBoxEmployeeC</find>
       <find>searchE</find>
-      <find />
+      <find>list of</find>
       <find>okButt</find>
       <find>Valu</find>
       <find>add</find>
@@ -63,11 +182,9 @@
         <option value="$PROJECT_DIR$/src/Form/EditForm.form" />
         <option value="$PROJECT_DIR$/src/Model/company/Person.java" />
         <option value="$PROJECT_DIR$/src/Tester/Main_STUB.java" />
-        <option value="$PROJECT_DIR$/src/Tester/Main.java" />
         <option value="$PROJECT_DIR$/src/Form/EditForm.java" />
         <option value="$PROJECT_DIR$/src/Form/FormAddStaff.java" />
         <option value="$PROJECT_DIR$/src/Form/MainForm.java" />
-        <option value="$PROJECT_DIR$/src/Model/company/Company.java" />
         <option value="$PROJECT_DIR$/src/Model/company/Department.java" />
         <option value="$PROJECT_DIR$/src/Model/company/Employee.java" />
         <option value="$PROJECT_DIR$/src/Model/company/Manager.java" />
@@ -77,13 +194,15 @@
         <option value="$PROJECT_DIR$/src/TCP/server/Server.java" />
         <option value="$PROJECT_DIR$/src/TCP/server/ServerTh.java" />
         <option value="$PROJECT_DIR$/src/TCP/server/TCPServerBuilder.java" />
-        <option value="$PROJECT_DIR$/src/Controller/MainFormController.java" />
         <option value="$PROJECT_DIR$/src/Controller/EditStaffController.java" />
         <option value="$PROJECT_DIR$/src/Controller/AddStaffController.java" />
+        <option value="$PROJECT_DIR$/src/Model/company/Company.java" />
+        <option value="$PROJECT_DIR$/src/Controller/MainFormController.java" />
+        <option value="$PROJECT_DIR$/src/Tester/Main.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="487" />
     <option name="y" value="164" />
     <option name="width" value="673" />
@@ -136,6 +255,18 @@
               <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewProjetJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewProjetJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Tester" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -279,21 +410,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49121523" weight="0.32750398" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49048316" weight="0.32750398" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.32503662" side_tool="true" visible="true" weight="0.34658188" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.32576868" side_tool="true" visible="true" weight="0.34658188" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6749634" visible="true" weight="0.34658188" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.67423135" weight="0.34658188" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2137628" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2137628" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -437,7 +569,6 @@
             <element signature="method#updateComboBoxAvailableStaff#0;class#MainFormController#0" />
             <element signature="docComment;method#updateTextFieldParameter#0;class#MainFormController#0" />
             <element signature="method#updateTextFieldParameter#0;class#MainFormController#0" />
-            <element signature="e#24572#24602#0" />
             <element signature="class#ComboBoxDepartmentListener#0;class#MainFormController#0" />
             <element signature="docComment;method#actionPerformed#0;class#ComboBoxDepartmentListener#0;class#MainFormController#0" />
             <element signature="class#ButtonDeleteFromCompanyListener#0;class#MainFormController#0" />
@@ -462,6 +593,7 @@
             <element signature="class#tabbedPaneListener#0;class#MainFormController#0" />
             <element signature="docComment;method#stateChanged#0;class#tabbedPaneListener#0;class#MainFormController#0" />
             <element signature="class#ImportButtonListener#0;class#MainFormController#0" />
+            <element signature="docComment;method#actionPerformed#0;class#ImportButtonListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ImportButtonListener#0;class#MainFormController#0" />
             <element signature="class#ExportButtonListener#0;class#MainFormController#0" />
             <element signature="docComment;method#actionPerformed#0;class#ExportButtonListener#0;class#MainFormController#0" />
@@ -556,13 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tester/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/EditForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -623,68 +748,6 @@
             <element signature="e#6789#6921#0" />
             <element signature="e#7029#7030#0" expanded="true" />
             <element signature="e#7077#7078#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/company/Company.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
-          <folding>
-            <element signature="e#572#608#0" />
-            <element signature="e#614#740#0" />
-            <element signature="e#913#962#0" />
-            <element signature="e#1039#1075#0" />
-            <element signature="e#1502#1533#0" />
-            <element signature="e#1657#1835#0" />
-            <element signature="e#1657#2176#0" />
-            <element signature="e#2182#2390#0" />
-            <element signature="e#2182#2697#0" />
-            <element signature="e#2703#2913#0" />
-            <element signature="e#2703#3367#0" />
-            <element signature="e#3373#3590#0" />
-            <element signature="e#3373#3976#0" />
-            <element signature="e#3982#4272#0" />
-            <element signature="e#3982#4756#0" />
-            <element signature="e#4762#5194#0" />
-            <element signature="e#4762#5526#0" />
-            <element signature="e#5532#5728#0" />
-            <element signature="e#5532#6014#0" />
-            <element signature="e#6020#6191#0" />
-            <element signature="e#6020#6530#0" />
-            <element signature="e#6653#6843#0" />
-            <element signature="e#6653#7174#0" />
-            <element signature="e#7180#7382#0" />
-            <element signature="e#7180#7682#0" />
-            <element signature="e#7688#7892#0" />
-            <element signature="e#7688#8337#0" />
-            <element signature="e#8343#8555#0" />
-            <element signature="e#8343#8933#0" />
-            <element signature="e#8939#9289#0" />
-            <element signature="e#8939#9884#0" />
-            <element signature="e#9890#10313#0" />
-            <element signature="e#9890#10635#0" />
-            <element signature="e#10641#10810#0" />
-            <element signature="e#10641#11144#0" />
-            <element signature="e#11150#11341#0" />
-            <element signature="e#11150#11622#0" />
-            <element signature="e#11744#11951#0" />
-            <element signature="e#11744#12394#0" />
-            <element signature="e#12400#12726#0" />
-            <element signature="e#12400#12971#0" />
-            <element signature="e#12977#13300#0" />
-            <element signature="e#12977#13978#0" />
-            <element signature="e#13811#13891#0" />
-            <element signature="e#13984#14301#0" />
-            <element signature="e#14408#14427#0" />
-            <element signature="e#14308#14886#0" />
-            <element signature="e#15101#15160#0" />
-            <element signature="e#14892#16091#0" />
-            <element signature="e#16488#16566#0" />
-            <element signature="e#16488#17810#0" />
-            <element signature="e#18271#18336#0" />
-            <element signature="e#17816#18641#0" />
           </folding>
         </state>
       </provider>
@@ -871,10 +934,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="88" column="65" selection-start-line="88" selection-start-column="65" selection-end-line="88" selection-end-column="65" />
+          <folding>
+            <element signature="method#AddStaffController#0;class#AddStaffController#0" />
+            <element signature="class#ButtonOkListener#0;class#AddStaffController#0" />
+            <element signature="docComment;method#actionPerformed#0;class#ButtonOkListener#0;class#AddStaffController#0" />
+            <element signature="class#ButtonCancelListener#0;class#AddStaffController#0" />
+            <element signature="docComment;method#actionPerformed#0;class#ButtonCancelListener#0;class#AddStaffController#0" />
+            <element signature="method#actionPerformed#0;class#ButtonCancelListener#0;class#AddStaffController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/company/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="493" selection-start-line="493" selection-end-line="493" />
+          <folding>
+            <element signature="e#572#608#0" />
+            <element signature="e#614#740#0" />
+            <element signature="e#913#962#0" />
+            <element signature="e#1039#1075#0" />
+            <element signature="e#1657#1835#0" />
+            <element signature="e#1657#2176#0" />
+            <element signature="e#2182#2390#0" />
+            <element signature="e#2182#2697#0" />
+            <element signature="e#2703#2913#0" />
+            <element signature="e#2703#3367#0" />
+            <element signature="e#3373#3590#0" />
+            <element signature="e#3373#3976#0" />
+            <element signature="e#3982#4272#0" />
+            <element signature="e#3982#4756#0" />
+            <element signature="e#18269#18478#0" />
+            <element signature="e#18269#19308#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MainFormController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="511" column="4" selection-start-line="511" selection-start-column="4" selection-end-line="511" selection-end-column="4" />
+        <state relative-caret-position="100">
+          <caret line="748" column="65" selection-start-line="748" selection-start-column="65" selection-end-line="748" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#MyModelTable#0;class#MainFormController#0" />
@@ -902,7 +1005,6 @@
             <element signature="method#updateComboBoxAvailableStaff#0;class#MainFormController#0" />
             <element signature="docComment;method#updateTextFieldParameter#0;class#MainFormController#0" />
             <element signature="method#updateTextFieldParameter#0;class#MainFormController#0" />
-            <element signature="e#24572#24602#0" />
             <element signature="class#ComboBoxDepartmentListener#0;class#MainFormController#0" />
             <element signature="docComment;method#actionPerformed#0;class#ComboBoxDepartmentListener#0;class#MainFormController#0" />
             <element signature="class#ButtonDeleteFromCompanyListener#0;class#MainFormController#0" />
@@ -927,6 +1029,7 @@
             <element signature="class#tabbedPaneListener#0;class#MainFormController#0" />
             <element signature="docComment;method#stateChanged#0;class#tabbedPaneListener#0;class#MainFormController#0" />
             <element signature="class#ImportButtonListener#0;class#MainFormController#0" />
+            <element signature="docComment;method#actionPerformed#0;class#ImportButtonListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ImportButtonListener#0;class#MainFormController#0" />
             <element signature="class#ExportButtonListener#0;class#MainFormController#0" />
             <element signature="docComment;method#actionPerformed#0;class#ExportButtonListener#0;class#MainFormController#0" />
@@ -951,18 +1054,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AddStaffController.java">
+    <entry file="file://$PROJECT_DIR$/src/Tester/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="88" column="65" selection-start-line="88" selection-start-column="65" selection-end-line="88" selection-end-column="65" />
-          <folding>
-            <element signature="method#AddStaffController#0;class#AddStaffController#0" />
-            <element signature="class#ButtonOkListener#0;class#AddStaffController#0" />
-            <element signature="docComment;method#actionPerformed#0;class#ButtonOkListener#0;class#AddStaffController#0" />
-            <element signature="class#ButtonCancelListener#0;class#AddStaffController#0" />
-            <element signature="docComment;method#actionPerformed#0;class#ButtonCancelListener#0;class#AddStaffController#0" />
-            <element signature="method#actionPerformed#0;class#ButtonCancelListener#0;class#AddStaffController#0" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
         </state>
       </provider>
     </entry>

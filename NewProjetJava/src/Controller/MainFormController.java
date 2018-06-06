@@ -758,12 +758,9 @@ public class MainFormController {
                 if(select==JFileChooser.APPROVE_OPTION){
                     fileChooser.getSelectedFile().getName();
                     String path = fileChooser.getSelectedFile().getAbsolutePath();
-                    int nb = company.importCSV(path);
+                    company.importCSV(path);
                     company.serialize();
-                    if (nb == 0)
                         JOptionPane.showMessageDialog(null,"All the Employees have been successfully added to the company","Success",JOptionPane.INFORMATION_MESSAGE);
-                    if (nb != 0)
-                        JOptionPane.showMessageDialog(null,nb+" employee(s) have not been added to the company.\nProbably because of an id conflict","Success",JOptionPane.INFORMATION_MESSAGE);
                 }
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null,"can not read the selected file.","Error",JOptionPane.INFORMATION_MESSAGE);
