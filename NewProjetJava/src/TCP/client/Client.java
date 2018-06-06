@@ -14,14 +14,24 @@ public class Client extends TCPClientBuilder implements Runnable {
     private String file;
     private Company company;
     private boolean status = false;
+
+    /**
+     * Construct a new TCP Client
+     * @param f String the file where to save the received checks
+     * @param company Company, the model
+     * @throws IOException If the connection with the server of the Time Tracker emulator is impossible
+     */
     public Client(String f,Company company) throws IOException {
         super();
         file = f;
         this.company = company;
     }
 
+    /**
+     * the client is always waiting for incoming checks, if it lost the connection with the server of the time Tracker
+     * he will try to reconnect until it did it
+     */
     public void run() {
-            //s.setSoTimeout(1000);
            while (true){
                try {
                    status = false;
@@ -31,7 +41,6 @@ public class Client extends TCPClientBuilder implements Runnable {
                    FileOutputStream out = new FileOutputStream(new File(file));
                    InputStream f = s.getInputStream();
                    byte[] buffer = new byte[8192];
-                   //StringBuffer sBuffer = new StringBuffer(8192);
                    if(f!=null)
                    {
                        do{
@@ -62,6 +71,9 @@ public class Client extends TCPClientBuilder implements Runnable {
 
     }
 
+    /**
+     * method which try to connect the client to the time tracker server
+     */
     public void connection(){
         status = false;
         try{

@@ -44,7 +44,6 @@ public class Company implements Serializable {
 
     //<editor-fold desc = "Get and Set">
 
-
     public ArrayList<Manager> getListManagers() {
         return listManagers;
     }
@@ -396,9 +395,9 @@ public class Company implements Serializable {
         for (Department d : listDepartment) {
             if (d.getName().equals(department.getName())) {
                 if (department.getListEmployees().size() != 0)
-                    throw new Exception("To remove a department he must be empty");
+                    throw new Exception("To remove a department, only its chief must be inside");
                 if (department.getListManagers().size() > 1)
-                    throw new Exception("To remove a department he must be empty");
+                    throw new Exception("To remove a department, only its chief must be inside");
                 listDepartment.remove(department);
                 return;
             }
@@ -445,7 +444,18 @@ public class Company implements Serializable {
             FileInputStream fis = new FileInputStream("save/company.serial");
             ObjectInputStream ois= new ObjectInputStream(fis);
             try {
+                int id = 0;
                 company = (Company) ois.readObject();
+                for (Employee e : company.getListEmployees()) {
+                    if (e.getId()>id)
+                        id = e.getId();
+                }
+                for (Manager m : company.getListManagers()) {
+                    if (m.getId()>id)
+                        id = m.getId();
+                }
+
+                Employee.setCounter(id+1);
             } finally { try {
                     ois.close();
                 } finally {

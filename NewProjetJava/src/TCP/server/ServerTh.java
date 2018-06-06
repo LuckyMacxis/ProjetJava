@@ -16,7 +16,9 @@ public class ServerTh implements Runnable {
         file = f;
     }
 
-    @Override
+    /**
+     * this server send the company to the client
+     */
     public void run() {
         try{
             if(s!=null)

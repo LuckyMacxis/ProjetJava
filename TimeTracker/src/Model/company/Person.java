@@ -49,6 +49,8 @@ public abstract class Person implements Serializable
 
     //<editor-fold desc="Get and Set">
 
+
+
     /**
      * get mail
      * @return the mail of a person

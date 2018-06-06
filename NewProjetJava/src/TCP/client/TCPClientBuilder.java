@@ -14,6 +14,10 @@ public class TCPClientBuilder extends Thread{
     private volatile String address;
     private volatile int port;
 
+    /**
+     * Construct a TCP Client
+     * @throws IOException if the Client can't make a connection with the time tracker server
+     */
     TCPClientBuilder() throws IOException {
         Properties config = new Properties();
         config.loadFromXML(new FileInputStream("config/config.xml"));
@@ -21,6 +25,10 @@ public class TCPClientBuilder extends Thread{
         port = Integer.parseInt(config.getProperty("portClient"));
     }
 
+    /**
+     * Create the socket
+     * @throws IOException if the socket can't reach the time tracker server
+     */
     void setSocket() throws IOException {
         isA = new InetSocketAddress(address, port);
         s = new Socket(isA.getHostName(), isA.getPort());
@@ -41,7 +49,6 @@ public class TCPClientBuilder extends Thread{
             e.printStackTrace();
         }
     }
-
 
     public int getPort() {
         return port;

@@ -31,6 +31,15 @@ public class Manager extends Employee {
         chief = false;
     }
 
+    /**
+     * Constructor with all the parameters
+     * @param lastname String
+     * @param firstname String
+     * @param mail String
+     * @param departureTime String
+     * @param arrivingTime String
+     * @throws Exception if arguments are null, if String for departure and arriving time aren't in the good format
+     */
     public Manager(String lastname, String firstname, String mail, DateAndTime departureTime, DateAndTime arrivingTime) throws Exception {
         super(lastname,firstname,mail,departureTime,arrivingTime);
         this.chief = false;

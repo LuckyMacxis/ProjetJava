@@ -44,7 +44,6 @@ public class Company implements Serializable {
 
     //<editor-fold desc = "Get and Set">
 
-
     public ArrayList<Manager> getListManagers() {
         return listManagers;
     }
@@ -168,7 +167,6 @@ public class Company implements Serializable {
      * @throws Exception if Argument are null, or if the employee isn't in the company
      *                   or if the check isn't assigned to this employee
      *                   or if the employee have already checked twice today
-     *                   or if the check is anterior of the last check of the employee
      */
     public void addCheckToEmployee(Employee employee, Check check) throws Exception {
         if (employee == null || check == null)
@@ -311,7 +309,6 @@ public class Company implements Serializable {
      * @throws Exception if Argument are null, or if the manager isn't in the company
      *                   or if the check isn't assigned to this manager
      *                   or if the manager have already checked twice today
-     *                   or if the check is anterior of the last check of the manager
      */
     public void addCheckToManager(Manager manager, Check check) throws Exception {
         if (manager== null || check == null)
@@ -409,6 +406,12 @@ public class Company implements Serializable {
 
     }
 
+    /**
+     * Search in the company a department with its name
+     * @param string String the name of the department
+     * @return Department the department which has this name
+     * @throws Exception if there isn't any department with this name in the company
+     */
     public Department searchDepartment(String string) throws Exception {
         for (Department department : listDepartment) {
             if (department.getName().equals(string))
@@ -418,6 +421,9 @@ public class Company implements Serializable {
     }
 
 
+    /**
+     * Serialize the company in "save/company.serial".this path can't be changed by the user
+     */
     public void serialize(){
         try {
             FileOutputStream fos = new FileOutputStream("save/company.serial");
@@ -439,13 +445,29 @@ public class Company implements Serializable {
         }
     }
 
+    /**
+     * deserialise a company from "save/company.serial"
+     * @return the Company which has been deserialised
+     * @throws Exception if the deserialization failed
+     */
     static public Company deserialize() throws Exception {
         Company company = null;
         try {
             FileInputStream fis = new FileInputStream("save/company.serial");
             ObjectInputStream ois= new ObjectInputStream(fis);
             try {
+                int id = 0;
                 company = (Company) ois.readObject();
+                for (Employee e : company.getListEmployees()) {
+                    if (e.getId()>id)
+                        id = e.getId();
+                }
+                for (Manager m : company.getListManagers()) {
+                    if (m.getId()>id)
+                        id = m.getId();
+                }
+
+                Employee.setCounter(id+1);
             } finally { try {
                     ois.close();
                 } finally {
@@ -465,6 +487,14 @@ public class Company implements Serializable {
 
     }
 
+    /**
+     * Import a list of employees / managers to the company from a csv file.
+     * if in the list of employee some of them has Id which are already used in the company, they wont be imported.
+     * the id of imported employees will be recalculate
+     * @param file String, the path to the file to import
+     * @return the number of employee which haven't been successfully imported
+     * @throws Exception if the file does't exist, if the file can't be read, or if the value in the csv file aren't in a good format
+     */
     public int importCSV(String file) throws Exception {
         int counter = 0;
         BufferedReader fileReader = new BufferedReader(new FileReader(file));
@@ -498,6 +528,11 @@ public class Company implements Serializable {
 
     }
 
+    /**
+     * Export all the employees / managers of the company in a csv file.
+     * @param file String the path where to export the list of employees
+     * @throws IOException if the  file isn't found
+     */
     public void exportCSV(String file) throws IOException {
         FileWriter writer = new FileWriter(file);
         String header = "Id,First Name, Last Name,mail,Departure Time,Arriving Time,Rank\n";

@@ -10,9 +10,9 @@ import TCP.server.Server;
 import form.MainForm;
 
 import javax.swing.*;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.*;
 import java.time.*;
 
 import java.awt.event.ActionEvent;
@@ -45,15 +45,25 @@ public class MainFormController {
     public MainFormController(MainForm mainForm){
         theView = mainForm;
 
+        try {
+            deserializeListChecks();
+            company = Company.deserialize();
+        }catch (Exception e){
+            e.printStackTrace();
+            company = new Company();
+        }
+
         theView.buttonCheckListener(new ButtonCheckListener());
         theView.buttonSyncListener(new ButtonSyncListener());
         theView.okButtonListener(new OkButtonListener());
+        theView.closingListener(new ClosingListener());
         try {
             server = new Server(listCheck);
             server.start();
             client = new Client("save/company.serial", this);
             client.start();
             updateTextFieldParameter();
+            updateComboBox();
         }catch (IOException e){
             JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -132,4 +142,61 @@ public class MainFormController {
             updateTextFieldParameter();
         }
     }
+
+    public void serializeListChecks(){
+        try {
+            FileOutputStream fos = new FileOutputStream("save/listChecks.serial");
+
+            ObjectOutputStream oos= new ObjectOutputStream(fos);
+            try {
+                oos.writeObject(listCheck);
+                oos.flush();
+                System.out.println("serialized");
+            } finally {
+                try {
+                    oos.close();
+                } finally {
+                    fos.close();
+                }
+            }
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+
+    public void deserializeListChecks() throws Exception {
+        try {
+            FileInputStream fis = new FileInputStream("save/listChecks.serial");
+            ObjectInputStream ois= new ObjectInputStream(fis);
+            try {
+                listCheck = (ArrayList<Check>) ois.readObject();
+            } finally {
+                try {
+                ois.close();
+                } finally {
+                    fis.close();
+                }
+            }
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        } catch(ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+        }
+        if(listCheck != null) {
+            System.out.println("deserialize");
+            return;
+        }
+        throw new Exception("deserialization failed");
+    }
+
+    private class ClosingListener extends WindowAdapter {
+        @Override
+        public void windowClosing(WindowEvent e) {
+            super.windowClosing(e);
+            serializeListChecks();
+            company.serialize();
+        }
+    }
+
 }

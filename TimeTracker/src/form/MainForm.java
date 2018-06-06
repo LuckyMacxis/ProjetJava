@@ -4,6 +4,7 @@ import Model.Time.DateAndTime;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.time.format.DateTimeFormatter;
 import java.util.TimerTask;
 import java.time.*;
@@ -73,5 +74,9 @@ public class MainForm extends JFrame {
 
     public void okButtonListener(ActionListener actionListener){
         okButton.addActionListener(actionListener);
+    }
+
+    public void closingListener(WindowAdapter windowAdapter){
+        addWindowListener(windowAdapter);
     }
 }

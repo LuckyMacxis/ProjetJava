@@ -13,10 +13,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,6 +31,9 @@ public class MainFormController {
 
     private int incidentThreshold = 30;
 
+    /**
+     * this is the model used in my JTable, with it cells aren't alterable
+     */
     public class MyModelTable extends DefaultTableModel{
         @Override
         public boolean isCellEditable(int i, int i1) {
@@ -41,6 +41,11 @@ public class MainFormController {
         }
     }
 
+    /**
+     * Construct the controller of the main view
+     * @param mainForm MainForm, theView, a JFrame
+     * @param company Company, the model
+     */
     public MainFormController(MainForm mainForm, Company company) {
         this.theView = mainForm;
         this.company = company;
@@ -65,6 +70,7 @@ public class MainFormController {
         theView.validateButtonListener(new ValidateButtonListener());
         theView.radioButtonChecksListener(new radioButtonChecksListener());
         theView.editStaffButtonListener(new EditStaffButtonListener());
+        theView.closingListener(new ClosingListener());
 
         theView.getTableStaff().setRowSelectionAllowed(true);
         theView.getTableStaff().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -80,10 +86,6 @@ public class MainFormController {
             JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
         }
 
-
-
-
-
         updateComboBoxDepartment();
         try {
             updateTableStaff();
@@ -94,6 +96,9 @@ public class MainFormController {
 
     //<editor-fold desc = "Update Method">
 
+    /**
+     * Update the object inside the comboBox of department
+     */
     private void updateComboBoxDepartment(){
         theView.getComboBoxDepartment().removeAllItems();
         theView.getComboBoxDepartment().addItem("All");
@@ -103,6 +108,10 @@ public class MainFormController {
         }
     }
 
+    /**
+     * update the values inside the table of employee according to the filters
+     * @throws Exception if we try to display something that doesn't exist in the company
+     */
     private void updateTableStaff() throws Exception {
 
         MyModelTable modelTableStaff = new MyModelTable();
@@ -259,6 +268,9 @@ public class MainFormController {
 
     }
 
+    /**
+     * update the comboBox of Available chief in the department tab
+     */
     private void updateComboBoxChief(){
         try {
             theView.getComboBoxChief().removeAllItems();
@@ -273,6 +285,9 @@ public class MainFormController {
 
     }
 
+    /**
+     * update the table of department according to the filters
+     */
     private void updateTableDepartment(){
         MyModelTable modelTableDepartment = new MyModelTable();
 
@@ -304,6 +319,9 @@ public class MainFormController {
 
     }
 
+    /**
+     * update the table of checks according to the filters and the incidence threshold value
+     */
     private void updateComboBoxDepartmentCheck(){
         theView.getComboBoxDepartmentCheck().removeAllItems();
         theView.getComboBoxDepartmentCheck().addItem("All");
@@ -313,6 +331,10 @@ public class MainFormController {
         }
     }
 
+    /**
+     * update the value inside the comboBox of employee / managers in the checks tab
+     * @throws Exception if we try to display something that doesn't exist in the company
+     */
     private void updateComboBoxEmployeeCheck() throws Exception {
         theView.getComboBoxEmployeeCheck().removeAllItems();
         String selectedItem = ((String) theView.getComboBoxDepartmentCheck().getSelectedItem());
@@ -358,23 +380,27 @@ public class MainFormController {
         }
     }
 
+    /**
+     * update the values inside the table of checks according to the filters
+     * @throws Exception if we try to display something that doesn't exist in the company
+     */
     private void updateTableChecks() throws Exception {
 
-        String selectedItem = ((String) theView.getComboBoxEmployeeCheck().getSelectedItem());
+        String selectedEmployee = ((String) theView.getComboBoxEmployeeCheck().getSelectedItem());
         MyModelTable model = new MyModelTable();
         model.addColumn("Employee");
         model.addColumn("Date");
         model.addColumn("Time");
         model.addColumn("Reference Time");
-        if(selectedItem == null){
+        if(selectedEmployee == null){
             theView.getTableCheck().setModel(model);
             return;
         }
         String time;
         String date;
 
-        if (selectedItem.split(" ")[0].equals("M")){
-            Manager manager = company.searchManagerWithId(Integer.parseInt(selectedItem.split(" ")[1]));
+        if (selectedEmployee.split(" ")[0].equals("M")){
+            Manager manager = company.searchManagerWithId(Integer.parseInt(selectedEmployee.split(" ")[1]));
             for (Check c:manager.getListCheck()) {
                 if(c.getArrivingTime() != null && (theView.getAllChecksRadioButton().isSelected() || (c.getCheck().getDate().equals(LocalDate.now())))){
                     if (c.getCheck().getTime().getHour()*60+c.getCheck().getTime().getMinute()
@@ -412,7 +438,7 @@ public class MainFormController {
                 }
             }
         }else{
-            Employee employee= company.searchEmployeeWithId(Integer.parseInt(selectedItem.split(" ")[0]));
+            Employee employee= company.searchEmployeeWithId(Integer.parseInt(selectedEmployee.split(" ")[0]));
             for (Check c:employee.getListCheck()) {
                 if(c.getArrivingTime() != null && (theView.getAllChecksRadioButton().isSelected() || (c.getCheck().getDate().equals(LocalDate.now())))){
                     if (c.getCheck().getTime().getHour()*60+c.getCheck().getTime().getMinute()
@@ -454,6 +480,10 @@ public class MainFormController {
         theView.getTableCheck().setModel(model);
     }
 
+    /**
+     * update the comboBox of available staff in the department tab
+     * @throws Exception if we try to display something that doesn't exist in the company
+     */
     public void updateComboBoxAvailableStaff() throws Exception {
         theView.getComboBoxAvailableStaff().removeAllItems();
         for (Manager m : company.getListManagers()) {
@@ -467,6 +497,9 @@ public class MainFormController {
         }
     }
 
+    /**
+     * update the values inside the textFields in  the parameter tab with the currents values of those parameters
+     */
     public void updateTextFieldParameter(){
         theView.getTextFieldPortServer().setText(Integer.toString(server.getPort()));
         theView.getTextFieldPortClient().setText(Integer.toString(client.getPort()));
@@ -479,7 +512,9 @@ public class MainFormController {
     //<editor-fold desc = "Class">
 
     private class ComboBoxDepartmentListener implements ActionListener {
-        @Override
+        /**
+         * update the table of employee when we select a department
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             if (theView.getComboBoxDepartment().getSelectedItem() != null)
             {
@@ -493,7 +528,9 @@ public class MainFormController {
     }
 
     private class ButtonDeleteFromCompanyListener implements ActionListener {
-        @Override
+        /**
+         * delete an employee / a manager from the company, then serialize the company
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             int nbRow;
             try {
@@ -513,7 +550,7 @@ public class MainFormController {
                     JOptionPane.showMessageDialog(null,"This manager is the chief of a department, he can't be removed","Error",JOptionPane.INFORMATION_MESSAGE);
                 }
                 updateTableStaff();
-                //TODO : serialize
+                company.serialize();
             }catch (Exception e){
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
@@ -523,7 +560,9 @@ public class MainFormController {
     }
 
     private class ButtonDeleteFromDepartmentListener implements ActionListener {
-        @Override
+        /**
+         * remove an employee / a manager from his department, then serialize the company
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             int nbRow;
             try {
@@ -546,7 +585,7 @@ public class MainFormController {
                     JOptionPane.showMessageDialog(null,"This manager is the chief of a department, he can't be removed","Error",JOptionPane.INFORMATION_MESSAGE);
                 }
                 updateTableStaff();
-                //TODO : serialize
+                company.serialize();
             }catch (Exception e){
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
@@ -555,7 +594,9 @@ public class MainFormController {
     }
 
     private class ButtonDeleteDepartmentListener implements ActionListener {
-        @Override
+        /**
+         * delete a department from the company, then serialize the company
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 int nbRow;
@@ -565,6 +606,7 @@ public class MainFormController {
                 String departmentName = theView.getTableDepartment().getValueAt(nbRow,0).toString();
                 company.removeDepartment(company.searchDepartment(departmentName));
                 updateTableDepartment();
+                company.serialize();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
             }
@@ -572,7 +614,9 @@ public class MainFormController {
     }
 
     private class RadioButtonListener implements ActionListener {
-        @Override
+        /**
+         * update the table of employee when an other radio button is selected
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 updateTableStaff();
@@ -583,7 +627,9 @@ public class MainFormController {
     }
 
     private class ButtonSetAsChiefListener implements ActionListener {
-        @Override
+        /**
+         * set the selected manager as the chief of his department, then serialize the company
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             int nbRow = theView.getTableStaff().getSelectedRow();
             int id = Integer.parseInt(theView.getTableStaff().getValueAt(nbRow,0).toString());
@@ -598,6 +644,7 @@ public class MainFormController {
                 if (theView.getTableStaff().getValueAt(nbRow,3).toString().equals("Manager"))
                     company.changeChiefOfDepartment(department,company.searchManagerWithId(id));
                 updateTableStaff();
+                company.serialize();
             }catch (Exception e){
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
@@ -606,7 +653,10 @@ public class MainFormController {
     }
 
     private class ButtonAddDepartmentListener implements ActionListener {
-        @Override
+        /**
+         * create and add a department to the company, depending on the selected chief and the name of the department
+         * , then serialize the company
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 if (theView.getComboBoxChief().getItemCount() < 1)
@@ -622,6 +672,7 @@ public class MainFormController {
                 updateComboBoxChief();
                 updateTableDepartment();
                 updateComboBoxAvailableStaff();
+                company.serialize();
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
             }
@@ -631,23 +682,28 @@ public class MainFormController {
 
     private class TextFieldSearchDepartmentListener implements KeyListener {
 
-        @Override
         public void keyTyped(KeyEvent keyEvent) {
         }
 
-        @Override
+        /**
+         * update the table of employee
+         */
         public void keyPressed(KeyEvent keyEvent) {
             updateTableDepartment();
         }
 
-        @Override
+        /**
+         * update the table of employee
+         */
         public void keyReleased(KeyEvent keyEvent) {
             updateTableDepartment();
         }
     }
 
     private class ComboBoxDepartmentCheckListener implements ActionListener {
-        @Override
+        /**
+         * update the comboBox of employee in the checks tab
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 updateComboBoxEmployeeCheck();
@@ -658,7 +714,9 @@ public class MainFormController {
     }
 
     private class ComboBoxEmployeeCheckListener implements ActionListener {
-        @Override
+        /**
+         * update the table of checks
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 updateTableChecks();
@@ -669,7 +727,9 @@ public class MainFormController {
     }
 
     private class tabbedPaneListener implements ChangeListener {
-        @Override
+        /**
+         * update all the comboBox, table, and TextFields of all tabs
+         */
         public void stateChanged(ChangeEvent changeEvent) {
             try {
                 updateComboBoxDepartment();
@@ -687,7 +747,9 @@ public class MainFormController {
     }
 
     private class ImportButtonListener implements ActionListener {
-        @Override
+        /**
+         * Import a list of employee from a csv file, then serialize the company
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 JFileChooser fileChooser = new JFileChooser();
@@ -697,6 +759,7 @@ public class MainFormController {
                     fileChooser.getSelectedFile().getName();
                     String path = fileChooser.getSelectedFile().getAbsolutePath();
                     int nb = company.importCSV(path);
+                    company.serialize();
                     if (nb == 0)
                         JOptionPane.showMessageDialog(null,"All the Employees have been successfully added to the company","Success",JOptionPane.INFORMATION_MESSAGE);
                     if (nb != 0)
@@ -710,7 +773,9 @@ public class MainFormController {
     }
 
     private class ExportButtonListener implements ActionListener {
-        @Override
+        /**
+         * export all the employees / managers of the company in a csv file
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             String fileName = theView.getFileNameTextField().getText();
             if (fileName == null || fileName.equals("")) {
@@ -736,12 +801,13 @@ public class MainFormController {
     }
 
     private class TextFieldSearchStaffListener implements KeyListener {
-        @Override
         public void keyTyped(KeyEvent keyEvent) {
 
         }
 
-        @Override
+        /**
+         * update the table of employees
+         */
         public void keyPressed(KeyEvent keyEvent) {
             try {
                 updateTableStaff();
@@ -750,7 +816,9 @@ public class MainFormController {
             }
         }
 
-        @Override
+        /**
+         * update the table of employees
+         */
         public void keyReleased(KeyEvent keyEvent) {
             try {
                 updateTableStaff();
@@ -761,7 +829,9 @@ public class MainFormController {
     }
 
     private class AssignButtonListener implements ActionListener {
-        @Override
+        /**
+         * assign an available employee / manager to a department, then serialize the company
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 int nbRow;
@@ -785,7 +855,9 @@ public class MainFormController {
     }
 
     private class AddStaffButtonListener implements ActionListener {
-        @Override
+        /**
+         * display the frame to add an employee / a manager, then serialize the company
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             FormAddStaff f = new FormAddStaff(theView,"test",company.getListDepartment());
             AddStaffController addStaffControl = new AddStaffController(f,company);
@@ -799,7 +871,9 @@ public class MainFormController {
     }
 
     private class OkButtonListener implements ActionListener {
-        @Override
+        /**
+         * update the parameters of the TCP client and the TCP server, then export those new value in the config.xml file
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 if (theView.getTextFieldIp().getText().equals("") || theView.getTextFieldIp().getText() == null
@@ -827,8 +901,11 @@ public class MainFormController {
         }
     }
 
+
     private class ValidateButtonListener implements ActionListener {
-        @Override
+        /**
+         * modify the value of the incidence threshold
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 if (theView.getTextFieldIncidence().getText().equals("") || theView.getTextFieldIncidence().getText() == null)
@@ -842,7 +919,9 @@ public class MainFormController {
     }
 
     private class radioButtonChecksListener implements ActionListener {
-        @Override
+        /**
+         * upadate the table of checks
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 updateTableChecks();
@@ -853,7 +932,9 @@ public class MainFormController {
     }
 
     private class EditStaffButtonListener implements ActionListener {
-        @Override
+        /**
+         * display the frame to edit an employee / a manager, then serialise the company
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 EditForm editForm = new EditForm();
@@ -871,10 +952,20 @@ public class MainFormController {
 
                 editForm.setVisible(true);
                 updateTableStaff();
+                company.serialize();
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Error",JOptionPane.INFORMATION_MESSAGE);
             }
+        }
+    }
 
+    private class ClosingListener extends WindowAdapter {
+        /**
+         * serialise the company before to close the application
+         */
+        public void windowClosing(WindowEvent e) {
+            super.windowClosing(e);
+            company.serialize();
         }
     }
 

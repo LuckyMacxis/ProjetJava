@@ -14,6 +14,9 @@ public class EditForm extends JDialog {
     private JPanel panel1;
 
 
+    /**
+     * construct a new EditForm object
+     */
     public EditForm(){
         super();
         setContentPane(panel1);

@@ -10,10 +10,10 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         MainForm form = new MainForm();
-        Company company = new Company("MyCompany");
-        Main_STUB.Stub(company);
-        company.serialize();
-        //company = Company.deserialize();
+        Company company;//= new Company("MyCompany");
+        //Main_STUB.Stub(company);
+        //company.serialize();
+        company = Company.deserialize();
         MainFormController mainController = new MainFormController(form, company);
         form.setVisible(true);
 

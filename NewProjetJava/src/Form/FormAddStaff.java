@@ -62,6 +62,12 @@ public class FormAddStaff extends JDialog {
 
     //</editor-fold>
 
+    /**
+     * Construct a new FormAddStaff frame
+     * @param frame Frame, parent frame
+     * @param string String, the name of the frame
+     * @param list Arraylist<Department> a list of department
+     */
     public FormAddStaff(Frame frame, String string, ArrayList<Department> list){
         super(frame, string);
         setTitle("Add staff");

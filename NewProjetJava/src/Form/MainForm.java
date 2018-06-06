@@ -2,8 +2,7 @@ package Form;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
 public class MainForm extends JFrame{
 
@@ -135,6 +134,9 @@ public class MainForm extends JFrame{
 
     //<editor-fold desc = "Constructors">
 
+    /**
+     * Construct a new MainFrom frame
+     */
     public MainForm(){
         setSize(1000,400);
         setContentPane(mainPanel);
@@ -230,8 +232,9 @@ public class MainForm extends JFrame{
 
     //</editor-fold>
 
-
-
+    public void closingListener(WindowAdapter windowAdapter){
+        addWindowListener(windowAdapter);
+    }
 
 }
 

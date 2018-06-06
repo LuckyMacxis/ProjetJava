@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="TimeTracker:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ae5df811-f843-4c60-b7f8-ab4b62c594c7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -11,7 +16,67 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="MainFormController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/MainFormController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#updateTextFieldParameter#0;class#MainFormController#0" />
+                <element signature="class#ButtonCheckListener#0;class#MainFormController#0" />
+                <element signature="method#actionPerformed#0;class#ButtonCheckListener#0;class#MainFormController#0" />
+                <element signature="class#ButtonSyncListener#0;class#MainFormController#0" />
+                <element signature="method#actionPerformed#0;class#ButtonSyncListener#0;class#MainFormController#0" />
+                <element signature="method#updateComboBox#0;class#MainFormController#0" />
+                <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+                <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+                <element signature="method#serializeListChecks#0;class#MainFormController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Company.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/company/Company.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="440" column="57" selection-start-line="440" selection-start-column="57" selection-end-line="440" selection-end-column="57" />
+              <folding>
+                <element signature="e#14893#15702#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tester/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/form/MainForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#MainForm#0;class#MainForm#0" />
+                <element signature="method#buttonCheckListener#0;class#MainForm#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -37,12 +102,12 @@
         <option value="$PROJECT_DIR$/src/Model/Time/DateAndTime.java" />
         <option value="$PROJECT_DIR$/src/tester/Main.java" />
         <option value="$PROJECT_DIR$/src/form/MainForm.form" />
-        <option value="$PROJECT_DIR$/src/form/MainForm.java" />
         <option value="$PROJECT_DIR$/config/config.xml" />
         <option value="$PROJECT_DIR$/src/TCP/server/TCPServerBuilder.java" />
         <option value="$PROJECT_DIR$/src/TCP/server/Server.java" />
         <option value="$PROJECT_DIR$/src/TCP/client/Client.java" />
         <option value="$PROJECT_DIR$/src/TCP/client/TCPClientBuilder.java" />
+        <option value="$PROJECT_DIR$/src/form/MainForm.java" />
         <option value="$PROJECT_DIR$/src/controller/MainFormController.java" />
       </list>
     </option>
@@ -58,8 +123,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -81,40 +144,54 @@
               <item name="TimeTracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="TimeTracker" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TimeTracker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeTracker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="form" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TimeTracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="TimeTracker" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="TCP" type="462c0819:PsiDirectoryNode" />
+              <item name="form" type="462c0819:PsiDirectoryNode" />
+              <item name="MainForm" type="e9f4de52:FormNode" />
             </path>
             <path>
               <item name="TimeTracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="TimeTracker" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="TCP" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TimeTracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="TimeTracker" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="TCP" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TimeTracker" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeTracker" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tester" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NewProjetJava" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -205,8 +282,8 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -215,8 +292,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -250,10 +327,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="20" selection-end-column="66" />
-          <folding>
-            <element signature="method#setSocket#0;class#TCPServerBuilder#0" />
-            <element signature="method#setPort#0;class#TCPServerBuilder#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -269,6 +342,9 @@
             <element signature="class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#updateComboBox#0;class#MainFormController#0" />
+            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#serializeListChecks#0;class#MainFormController#0" />
           </folding>
         </state>
       </provider>
@@ -287,10 +363,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding>
-            <element signature="method#setSocket#0;class#TCPServerBuilder#0" />
-            <element signature="method#setPort#0;class#TCPServerBuilder#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -300,7 +372,6 @@
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -317,6 +388,9 @@
             <element signature="class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#updateComboBox#0;class#MainFormController#0" />
+            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#serializeListChecks#0;class#MainFormController#0" />
           </folding>
         </state>
       </provider>
@@ -351,7 +425,6 @@
           <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -368,6 +441,9 @@
             <element signature="class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#updateComboBox#0;class#MainFormController#0" />
+            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#serializeListChecks#0;class#MainFormController#0" />
           </folding>
         </state>
       </provider>
@@ -395,7 +471,6 @@
           <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -412,6 +487,9 @@
             <element signature="class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#updateComboBox#0;class#MainFormController#0" />
+            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#serializeListChecks#0;class#MainFormController#0" />
           </folding>
         </state>
       </provider>
@@ -446,7 +524,6 @@
           <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -463,6 +540,9 @@
             <element signature="class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#updateComboBox#0;class#MainFormController#0" />
+            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#serializeListChecks#0;class#MainFormController#0" />
           </folding>
         </state>
       </provider>
@@ -490,7 +570,6 @@
           <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -507,6 +586,9 @@
             <element signature="class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#actionPerformed#0;class#ButtonSyncListener#0;class#MainFormController#0" />
             <element signature="method#updateComboBox#0;class#MainFormController#0" />
+            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#serializeListChecks#0;class#MainFormController#0" />
           </folding>
         </state>
       </provider>
@@ -521,13 +603,6 @@
     <entry file="file://$PROJECT_DIR$/src/model/company/Employee.java" />
     <entry file="file://$PROJECT_DIR$/save/company.serial">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/company/Company.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="459" lean-forward="true" selection-start-line="459" selection-end-line="459" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TCP/server/ServerTh.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -560,29 +635,6 @@
     <entry file="file://$PROJECT_DIR$/src/form/MainForm.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/form/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="44" column="21" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#MainForm#0;class#MainForm#0" />
-            <element signature="method#buttonCheckListener#0;class#MainForm#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tester/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#Main#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TCP/client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -607,22 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/MainFormController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="126" column="82" selection-start-line="126" selection-start-column="82" selection-end-line="126" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#updateTextFieldParameter#0;class#MainFormController#0" />
-            <element signature="class#ButtonCheckListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ButtonCheckListener#0;class#MainFormController#0" />
-            <element signature="class#ButtonSyncListener#0;class#MainFormController#0" />
-            <element signature="method#actionPerformed#0;class#ButtonSyncListener#0;class#MainFormController#0" />
-            <element signature="method#updateComboBox#0;class#MainFormController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TCP/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -637,9 +673,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
           <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="20" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tester/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
-            <element signature="method#setSocket#0;class#TCPServerBuilder#0" />
-            <element signature="method#setPort#0;class#TCPServerBuilder#0" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/company/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="440" column="57" selection-start-line="440" selection-start-column="57" selection-end-line="440" selection-end-column="57" />
+          <folding>
+            <element signature="e#14893#15702#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/form/MainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#MainForm#0;class#MainForm#0" />
+            <element signature="method#buttonCheckListener#0;class#MainForm#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/MainFormController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#updateTextFieldParameter#0;class#MainFormController#0" />
+            <element signature="class#ButtonCheckListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#ButtonCheckListener#0;class#MainFormController#0" />
+            <element signature="class#ButtonSyncListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#ButtonSyncListener#0;class#MainFormController#0" />
+            <element signature="method#updateComboBox#0;class#MainFormController#0" />
+            <element signature="class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#actionPerformed#0;class#OkButtonListener#0;class#MainFormController#0" />
+            <element signature="method#serializeListChecks#0;class#MainFormController#0" />
           </folding>
         </state>
       </provider>
@@ -650,10 +733,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>TimeTracker:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

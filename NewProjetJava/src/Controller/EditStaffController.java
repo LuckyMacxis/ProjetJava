@@ -11,6 +11,11 @@ public class EditStaffController {
     private EditForm theView;
     private Employee selectedEmployee;
 
+    /**
+     * Construct the controller of the view to Edit a staff member of the company
+     * @param theView EditForm, a modal JFrame
+     * @param employee
+     */
     public EditStaffController(EditForm theView, Employee employee) {
         this.theView = theView;
         selectedEmployee = employee;
@@ -21,6 +26,9 @@ public class EditStaffController {
         updateTextField();
     }
 
+    /**
+     * this method update the value inside the textField of this frame with the current value of the employee
+     */
     public void updateTextField(){
         theView.getTextFieldFirstName().setText(selectedEmployee.getFirstname());
         theView.getTextFieldLastName().setText(selectedEmployee.getLastname());
@@ -31,7 +39,9 @@ public class EditStaffController {
     }
 
     private class OkButtonListener implements ActionListener {
-        @Override
+        /**
+         * Validate the modification made to the selected employee / manager, and then close the Frame
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             try {
                 selectedEmployee.editEmployee(theView.getTextFieldLastName().getText(),theView.getTextFieldFirstName().getText(),theView.getTextFieldMail().getText(),theView.getTextFieldArriving().getText(),theView.getTextFieldDeparture().getText());
@@ -44,7 +54,9 @@ public class EditStaffController {
     }
 
     private class CancelButtonListener implements ActionListener {
-        @Override
+        /**
+         * doesn't validate the modification made to the selected employee / manager and close the frame
+         */
         public void actionPerformed(ActionEvent actionEvent) {
             theView.dispose();
         }

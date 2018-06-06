@@ -46,6 +46,15 @@ public class Employee extends Person {
         departureTime = null;
     }
 
+    /**
+     * Constructor with all the parameters
+     * @param lastname String
+     * @param firstname String
+     * @param mail String
+     * @param departureTime String
+     * @param arrivingTime String
+     * @throws Exception if arguments are null, if String for departure and arriving time aren't in the good format
+     */
     public Employee(String lastname, String firstname, String mail, DateAndTime departureTime, DateAndTime arrivingTime) throws Exception {
         super(lastname,firstname,mail);
         this.additionalTime = 0;
@@ -59,6 +68,10 @@ public class Employee extends Person {
 
     //<editor-fold desc = "Get and Set">
 
+
+    public static void setCounter(int counter) {
+        Employee.counter = counter;
+    }
 
     public ArrayList<Check> getListCheck() {
         return listCheck;
@@ -133,6 +146,15 @@ public class Employee extends Person {
         listCheck.add(check);
     }
 
+    /**
+     * edit the attributes of an employee
+     * @param lastName String
+     * @param firstName String
+     * @param mail String
+     * @param arriving String
+     * @param departure String
+     * @throws Exception if arguments are null, if String for departure and arriving time aren't in the good format
+     */
     public void editEmployee(String lastName, String firstName, String mail, String arriving, String departure) throws Exception {
         if (lastName.equals("") || lastName == null)
             throw new Exception("The last name of an employee can't be empty");

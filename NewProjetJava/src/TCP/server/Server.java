@@ -4,14 +4,16 @@ import java.io.IOException;
 
 public class Server extends TCPServerBuilder implements Runnable {
 
-    /**
-     * The main method for threading.
-     */
+
     public Server() throws IOException {
         super();
     }
 
-    @Override
+
+    /**
+     * the server wait for a connection with the client of the time tracker,
+     * when a client is connected this server server create a new server which will send the company
+     */
     public void run() {
         try {
             setSocket();
@@ -21,7 +23,6 @@ public class Server extends TCPServerBuilder implements Runnable {
             while(true)
             {
                 try{
-                    //ss.setSoTimeout(1500);
                     s = ss.accept();
                     if(s!=null)
                     {

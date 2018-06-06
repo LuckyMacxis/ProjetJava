@@ -26,19 +26,15 @@ public class Main_STUB {
             employee1.addCheck(new Check(employee1,new DateAndTime("15/05/1997 15:00",DateAndTime.DATE_TIME)));
             employee1.addCheck(new Check(employee1,new DateAndTime("16/05/1997 11:00",DateAndTime.DATE_TIME)));
             employee1.addCheck(new Check(employee1,new DateAndTime("16/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("17/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("17/05/1997 15:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("18/05/1997 11:00",DateAndTime.DATE_TIME)));
-            employee1.addCheck(new Check(employee1,new DateAndTime("18/05/1997 15:00",DateAndTime.DATE_TIME)));
 
 
-            Employee employee2 = new Employee("David","ZAIPOULAIEV",
+            Employee employee2 = new Employee("David","Yann",
                                                new DateAndTime("8:00",DateAndTime.TIME),
                                                new DateAndTime("18:00",DateAndTime.TIME));
             Employee employee3 = new Employee("Martin","PECHEUR",
                                                new DateAndTime("10:00",DateAndTime.TIME),
                                                new DateAndTime("15:00",DateAndTime.TIME));
-            Manager manager1 = new Manager("Yann","David",
+            Manager manager1 = new Manager("Carbonnier","Etienne",
                                           new DateAndTime("7:45",DateAndTime.TIME),
                                           new DateAndTime("22:45",DateAndTime.TIME));
             Manager manager4 = new Manager("Nicolas","Vi",
@@ -51,7 +47,7 @@ public class Main_STUB {
             Manager manager2 = new Manager("Olivier","Philip",
                                             new DateAndTime("5:45",DateAndTime.TIME),
                                             new DateAndTime("20:45",DateAndTime.TIME));
-            Manager manager3 = new Manager("petit","David",
+            Manager manager3 = new Manager("Drame","Moussa",
                                             new DateAndTime("7:45",DateAndTime.TIME),
                                             new DateAndTime("22:45",DateAndTime.TIME));
 
@@ -66,9 +62,9 @@ public class Main_STUB {
             company.addManager(manager4);
 
             //create 3 department
-            Department department1 = new Department("department1",manager1);
-            Department department2 = new Department("department2",manager2);
-            Department department3 = new Department("department3",manager3);
+            Department department1 = new Department("R&D",manager1);
+            Department department2 = new Department("Info",manager2);
+            Department department3 = new Department("Com",manager3);
 
             //add those department in the company
             company.addDepartment(department1);

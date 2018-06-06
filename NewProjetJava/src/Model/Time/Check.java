@@ -89,6 +89,10 @@ public class Check implements Serializable{
 
     //<editor-fold desc = "Method">
 
+    /**
+     * serialize a check to "tmp/check.serial", this path can't be changer by the user
+     * @throws IOException if the file isn't found
+     */
     public void serialize() throws IOException {
         FileOutputStream fos = new FileOutputStream("tmp/check.serial");
 
@@ -106,6 +110,11 @@ public class Check implements Serializable{
         }
     }
 
+    /**
+     * deserialize a checks from "tmp/check.serial", this path can't be changed by the user
+     * @return Check, the deserialized check
+     * @throws Exception if the deserialization failed
+     */
     static public Check deserialize() throws Exception {
         Check check = null;
         try {
